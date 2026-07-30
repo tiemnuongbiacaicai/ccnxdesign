@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio & Art Showcase ✨</title>
+    <title>Plushie Store - Cute World ✨</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,6 +16,22 @@
                         ptYellow: '#FFF9C4',
                         ptBrown: '#5D4037',
                         ptCream: '#FFFDF9',
+                        ptSoftGray: '#EFEBE9'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.85' },
+                        }
+                    },
+                    animation: {
+                        float: 'float 4s ease-in-out infinite',
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
                     }
                 }
             }
@@ -22,110 +39,304 @@
     </script>
     <style>
         body { background-color: #FFFDF9; color: #5D4037; font-family: 'Segoe UI', system-ui, sans-serif; }
-        .cute-card { border: 2px solid #F5EBE6; transition: all 0.3s ease; }
-        .cute-card:hover { transform: translateY(-4px); border-color: #FFE0B2; box-shadow: 0 10px 20px rgba(93,64,55,0.06); }
+        
+        /* Hiệu ứng zoom ảnh khi hover */
+        .img-hover-zoom { overflow: hidden; }
+        .img-hover-zoom img { transition: transform 0.5s ease; }
+        .img-hover-zoom:hover img { transform: scale(1.06); }
+        
+        /* Thẻ card có bóng đổ mềm mại */
+        .cute-shadow { transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .cute-shadow:hover { transform: translateY(-5px); box-shadow: 0 12px 24px -8px rgba(93, 64, 55, 0.12); }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- MENU THANH ĐIỀU HƯỚNG (HEADER) -->
-    <nav class="sticky top-0 z-50 bg-[#FFFDF9]/90 backdrop-blur-md border-b border-amber-100 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
-            <a href="index.html" class="text-xl font-black tracking-wide flex items-center gap-2">
-                <span class="bg-ptYellow px-3 py-1 rounded-full text-base shadow-sm">🌿</span>
-                <span class="text-ptBrown">Pastel Studio</span>
+    <!-- 1. THANH MENU TRÊN CÙNG (NAVBAR) -->
+    <header class="sticky top-0 z-50 bg-[#FFFDF9]/90 backdrop-blur-md border-b border-orange-100">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="font-extrabold text-xl tracking-wide flex items-center gap-2">
+                <span class="w-8 h-8 rounded-full bg-ptOrange flex items-center justify-center animate-bounce">🧸</span>
+                <span class="text-ptBrown">Pastel Plush</span>
             </a>
-            <div class="flex items-center gap-2 sm:gap-4 font-bold text-xs sm:text-sm">
-                <a href="index.html" class="px-4 py-2 rounded-full bg-ptGreen text-ptBrown shadow-sm">Gallery</a>
-                <a href="pricing.html" class="px-4 py-2 rounded-full hover:bg-ptOrange transition">Bảng Giá</a>
-                <a href="membership.html" class="px-4 py-2 rounded-full hover:bg-ptYellow transition">Chế độ Members</a>
-                <a href="tos.html" class="px-4 py-2 rounded-full hover:bg-stone-200 transition">ToS</a>
+
+            <!-- Menu Links -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-stone-600">
+                <a href="#" class="text-ptBrown font-bold hover:text-orange-400 transition">Trang Chủ</a>
+                <a href="#" class="hover:text-orange-400 transition">Tất Cả SP</a>
+                <a href="#" class="hover:text-orange-400 transition">Hàng Mới Về</a>
+                <a href="#" class="hover:text-orange-400 transition">Gấu Bông</a>
+                <a href="#" class="hover:text-orange-400 transition">Móc Khóa</a>
+                <a href="#" class="hover:text-orange-400 transition">Đồ Chơi</a>
+                <a href="#" class="hover:text-orange-400 transition">Liên Hệ</a>
+            </nav>
+
+            <!-- Icon tiện ích -->
+            <div class="flex items-center gap-4 text-lg text-ptBrown">
+                <button class="p-2 hover:bg-ptOrange/50 rounded-full transition">🛒</button>
+                <button class="p-2 hover:bg-ptYellow rounded-full transition">🔍</button>
+                <button class="p-2 hover:bg-ptGreen rounded-full transition">👤</button>
             </div>
         </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <header class="max-w-4xl mx-auto text-center my-10 px-4">
-        <div class="relative w-28 h-28 mx-auto mb-4">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=artist" alt="Avatar" class="w-full h-full rounded-full bg-ptOrange p-2 border-2 border-ptBrown shadow-md">
-            <span class="absolute bottom-0 right-0 bg-emerald-400 border-2 border-white text-white text-[10px] font-bold px-2 py-0.5 rounded-full">OPEN</span>
-        </div>
-        <h1 class="text-3xl font-extrabold mb-2">Xin chào! Mình là Designer / Artist 🎨</h1>
-        <p class="text-stone-600 max-w-md mx-auto text-sm leading-relaxed">
-            Nơi trưng bày các sản phẩm minh họa, banner, ấn phẩm in ấn & thiết kế commission.
-        </p>
     </header>
 
-    <!-- PORTFOLIO GALLERY (MASONRY GRID) -->
-    <main class="max-w-6xl mx-auto px-4 mb-20 flex-1">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-ptGreen inline-block"></span>
-                Tác Phẩm Nổi Bật
-            </h2>
+    <main class="max-w-6xl mx-auto px-4 py-6 space-y-10 flex-1 w-full">
+
+        <!-- 2. BANNER CHÍNH (HERO CAROUSEL SECTION) -->
+        <section class="relative bg-gradient-to-r from-ptGreen/40 via-ptOrange/30 to-ptYellow/40 rounded-3xl p-8 sm:p-12 text-center overflow-hidden border-2 border-stone-100">
+            <!-- Nút mũi tên chuyển Slide (Trái / Phải) -->
+            <button class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-md hover:bg-white hover:scale-110 transition">❮</button>
+            <button class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-md hover:bg-white hover:scale-110 transition">❯</button>
+
+            <!-- Nội dung Chữ chuyển động tự nhiên (Float) -->
+            <div class="max-w-xl mx-auto space-y-3 animate-float">
+                <p class="text-xs sm:text-sm font-bold tracking-widest text-stone-500 uppercase">Vòng Tay Ấm Áp • Đồng Hành Cùng Bạn</p>
+                <h1 class="text-2xl sm:text-4xl font-black text-ptBrown leading-tight">
+                    Sở Hữu Một Em Gấu Bông <br> Sưởi Ấm Tâm Hồn Trẻ Thơ
+                </h1>
+                <div class="pt-2">
+                    <button class="bg-white text-ptBrown font-bold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-md hover:bg-ptOrange hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        Xem Ngay ✨
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. KHUNG BANNER LỚN TRUNG TÂM (MIDDLE LARGE BANNER) -->
+        <section class="img-hover-zoom rounded-3xl bg-stone-200 h-56 sm:h-72 w-full relative overflow-hidden cute-shadow">
+            <!-- Thay link ảnh lớn của bạn ở đây -->
+            <img src="https://picsum.photos/1200/500?random=1" alt="Main Banner" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-ptBrown/10 flex items-center justify-center">
+                <span class="bg-white/90 backdrop-blur-sm text-ptBrown px-5 py-2 rounded-full font-bold text-xs sm:text-sm shadow-sm">
+                    ✨ BỘ SƯU TẬP MỚI NHẤT
+                </span>
+            </div>
+        </section>
+
+        <!-- 4. THANH PHÂN CÁCH 1 (HOT CATEGORY PILL BAR) -->
+        <div class="bg-stone-300 text-stone-700 px-6 py-3 rounded-full flex justify-between items-center text-xs sm:text-sm font-bold shadow-sm">
+            <div class="flex items-center gap-2">
+                <span class="bg-ptOrange text-ptBrown px-2.5 py-0.5 rounded-full text-[11px]">HOT</span>
+                <span>Khu Vực Bán Chạy >> Vào đây để tìm sản phẩm bạn thích nha~</span>
+            </div>
+            <a href="#" class="hover:underline tracking-wider uppercase">CLICK</a>
         </div>
 
-        <!-- Khung ảnh tự động xếp cột tương thích mọi kích thước (Masonry) -->
-        <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-
-            <!-- ẢNH 1: Dạng Dọc -->
-            <div class="cute-card bg-white rounded-3xl p-3 break-inside-avoid">
-                <img src="https://picsum.photos/400/600" alt="Artwork" class="w-full rounded-2xl cursor-pointer hover:opacity-95 transition" onclick="openModal(this.src)">
-                <div class="mt-3 px-2">
-                    <span class="text-[10px] bg-ptYellow px-2.5 py-1 rounded-full font-bold">Illustration</span>
-                    <h3 class="font-bold text-sm mt-1">Minh họa Nhân vật Chibi</h3>
+        <!-- 5. BẰNG LƯỚI BENTO MẪU (BENTO GRID CATEGORIES) -->
+        <section class="bg-stone-300 p-4 sm:p-6 rounded-3xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+                
+                <!-- Cột 1: Thẻ Dọc Cao (Tất Cả Sản Phẩm) -->
+                <div class="img-hover-zoom cute-card bg-stone-200 rounded-2xl relative h-64 md:h-full min-h-[300px] flex items-end p-5">
+                    <img src="https://picsum.photos/400/700?random=2" class="absolute inset-0 w-full h-full object-cover rounded-2xl">
+                    <div class="relative z-10 bg-white/90 backdrop-blur-sm p-3.5 rounded-xl w-full">
+                        <h3 class="font-bold text-base text-ptBrown">Tất Cả Sản Phẩm</h3>
+                        <p class="text-[11px] text-stone-500">All Products</p>
+                    </div>
                 </div>
+
+                <!-- Cột 2: 2 Thẻ Vuông Nhỏ (Giữa) -->
+                <div class="flex flex-col gap-4">
+                    <div class="img-hover-zoom bg-stone-200 rounded-2xl relative h-36 sm:h-44 flex items-start p-4">
+                        <img src="https://picsum.photos/400/300?random=3" class="absolute inset-0 w-full h-full object-cover rounded-2xl">
+                        <div class="relative z-10 bg-white/90 backdrop-blur-sm p-2.5 rounded-xl">
+                            <h4 class="font-bold text-xs sm:text-sm text-ptBrown">Sản Phẩm Mới</h4>
+                            <p class="text-[10px] text-stone-500">New Product Launch</p>
+                        </div>
+                    </div>
+                    <div class="img-hover-zoom bg-stone-200 rounded-2xl relative h-36 sm:h-44 flex items-start p-4">
+                        <img src="https://picsum.photos/400/300?random=4" class="absolute inset-0 w-full h-full object-cover rounded-2xl">
+                        <div class="relative z-10 bg-white/90 backdrop-blur-sm p-2.5 rounded-xl">
+                            <h4 class="font-bold text-xs sm:text-sm text-ptBrown">Móc Khóa Dễ Thương</h4>
+                            <p class="text-[10px] text-stone-500">Cute Pendant</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột 3: 2 Thẻ Vuông Nhỏ (Phải) -->
+                <div class="flex flex-col gap-4">
+                    <div class="img-hover-zoom bg-stone-200 rounded-2xl relative h-36 sm:h-44 flex items-start p-4">
+                        <img src="https://picsum.photos/400/300?random=5" class="absolute inset-0 w-full h-full object-cover rounded-2xl">
+                        <div class="relative z-10 bg-white/90 backdrop-blur-sm p-2.5 rounded-xl">
+                            <h4 class="font-bold text-xs sm:text-sm text-ptBrown">Gấu Bông Lông Xù</h4>
+                            <p class="text-[10px] text-stone-500">Plush Doll</p>
+                        </div>
+                    </div>
+                    <div class="img-hover-zoom bg-stone-200 rounded-2xl relative h-36 sm:h-44 flex items-start p-4">
+                        <img src="https://picsum.photos/400/300?random=6" class="absolute inset-0 w-full h-full object-cover rounded-2xl">
+                        <div class="relative z-10 bg-white/90 backdrop-blur-sm p-2.5 rounded-xl">
+                            <h4 class="font-bold text-xs sm:text-sm text-ptBrown">Đồ Chơi Xếp Hình</h4>
+                            <p class="text-[10px] text-stone-500">Fun Building Blocks</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. BANNER SẢN PHẨM NỔI BẬT (FEATURE PRODUCT BANNER) -->
+        <section class="bg-stone-100 rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8 border border-amber-100">
+            <!-- Ảnh bên trái -->
+            <div class="w-full md:w-1/2 h-56 sm:h-64 bg-stone-200 rounded-2xl overflow-hidden img-hover-zoom cute-shadow">
+                <img src="https://picsum.photos/600/400?random=7" class="w-full h-full object-cover">
             </div>
 
-            <!-- ẢNH 2: Dạng Vuông -->
-            <div class="cute-card bg-white rounded-3xl p-3 break-inside-avoid">
-                <img src="https://picsum.photos/400/400" alt="Artwork" class="w-full rounded-2xl cursor-pointer hover:opacity-95 transition" onclick="openModal(this.src)">
-                <div class="mt-3 px-2">
-                    <span class="text-[10px] bg-ptGreen px-2.5 py-1 rounded-full font-bold">UI / Layout</span>
-                    <h3 class="font-bold text-sm mt-1">Giao diện Game / Web</h3>
+            <!-- Nội dung bên phải -->
+            <div class="w-full md:w-1/2 text-right space-y-3">
+                <h2 class="text-2xl sm:text-3xl font-black text-ptBrown">Bộ Sưu Tập Dâu Tây 🍓</h2>
+                <p class="text-xs text-stone-500 leading-relaxed max-w-md ml-auto">
+                    Lấy cảm hứng từ những quả dâu tây ngọt ngào và chú gấu trúc nhỏ, mang lại cảm giác mềm mại, tràn đầy năng lượng tích cực cho căn phòng của bạn.
+                </p>
+                <div class="pt-4 flex justify-end gap-3">
+                    <button class="bg-stone-600 text-white text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-ptBrown transition">
+                        Thêm Vào Giỏ
+                    </button>
+                    <button class="bg-white border-2 border-stone-600 text-ptBrown text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-ptYellow transition">
+                        Mua Ngay
+                    </button>
                 </div>
             </div>
+        </section>
 
-            <!-- ẢNH 3: Dạng Ngang -->
-            <div class="cute-card bg-white rounded-3xl p-3 break-inside-avoid">
-                <img src="https://picsum.photos/600/350" alt="Artwork" class="w-full rounded-2xl cursor-pointer hover:opacity-95 transition" onclick="openModal(this.src)">
-                <div class="mt-3 px-2">
-                    <span class="text-[10px] bg-ptOrange px-2.5 py-1 rounded-full font-bold">Banner</span>
-                    <h3 class="font-bold text-sm mt-1">Banner Sự Kiện Weibo / X</h3>
-                </div>
+        <!-- 7. THANH PHÂN CÁCH 2 (PLUSH DOLL ENTRY PILL BAR) -->
+        <div class="bg-stone-300 text-stone-700 px-6 py-3 rounded-full flex justify-between items-center text-xs sm:text-sm font-bold shadow-sm">
+            <div class="flex items-center gap-2">
+                <span class="bg-ptGreen text-ptBrown px-2.5 py-0.5 rounded-full text-[11px]">GẤU BÔNG</span>
+                <span>Khu Vực Gấu Bông >> Xem các mẫu gấu mềm mịn mới về~</span>
             </div>
-
-            <!-- ẢNH 4: Dạng Dọc Siêu Dài -->
-            <div class="cute-card bg-white rounded-3xl p-3 break-inside-avoid">
-                <img src="https://picsum.photos/400/750" alt="Artwork" class="w-full rounded-2xl cursor-pointer hover:opacity-95 transition" onclick="openModal(this.src)">
-                <div class="mt-3 px-2">
-                    <span class="text-[10px] bg-stone-200 px-2.5 py-1 rounded-full font-bold">Merchandise</span>
-                    <h3 class="font-bold text-sm mt-1">Thiết kế Standee Cặp đôi</h3>
-                </div>
-            </div>
-
-            <!-- Bạn có thể copy thêm nhiều thẻ div class="cute-card..." tùy thích -->
-
+            <a href="#" class="hover:underline tracking-wider uppercase">CLICK</a>
         </div>
+
+        <!-- 8. DANH SÁCH 4 SẢN PHẨM (PRODUCT GRID) -->
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            
+            <!-- Sản phẩm 1 -->
+            <div class="cute-shadow bg-white rounded-2xl p-3 border border-stone-100 flex flex-col justify-between">
+                <div>
+                    <div class="h-40 sm:h-48 bg-stone-200 rounded-xl overflow-hidden img-hover-zoom mb-3">
+                        <img src="https://picsum.photos/300/300?random=8" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-xs sm:text-sm text-stone-800">Bộ Sưu Tập Gấu Disney</h4>
+                    <p class="text-[10px] text-stone-400 mt-1">Gấu bông lông xù cao cấp làm quà tặng</p>
+                </div>
+                <div class="mt-3 pt-2 border-t flex justify-between items-center">
+                    <span class="text-xs font-black text-rose-500">Giảm còn 89.1$</span>
+                    <button class="bg-stone-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg hover:bg-ptOrange hover:text-ptBrown transition">
+                        Mua ngay &gt;
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="cute-shadow bg-white rounded-2xl p-3 border border-stone-100 flex flex-col justify-between">
+                <div>
+                    <div class="h-40 sm:h-48 bg-stone-200 rounded-xl overflow-hidden img-hover-zoom mb-3">
+                        <img src="https://picsum.photos/300/300?random=9" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-xs sm:text-sm text-stone-800">Gấu Bông Nút Áo Mềm</h4>
+                    <p class="text-[10px] text-stone-400 mt-1">Chất liệu êm ái thân thiện với da</p>
+                </div>
+                <div class="mt-3 pt-2 border-t flex justify-between items-center">
+                    <span class="text-xs font-black text-rose-500">Giảm còn 29.8$</span>
+                    <button class="bg-stone-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg hover:bg-ptOrange hover:text-ptBrown transition">
+                        Mua ngay &gt;
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="cute-shadow bg-white rounded-2xl p-3 border border-stone-100 flex flex-col justify-between">
+                <div>
+                    <div class="h-40 sm:h-48 bg-stone-200 rounded-xl overflow-hidden img-hover-zoom mb-3">
+                        <img src="https://picsum.photos/300/300?random=10" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-xs sm:text-sm text-stone-800">Móc Khóa Chú Heo</h4>
+                    <p class="text-[10px] text-stone-400 mt-1">Móc khóa heo nhỏ nhắn dễ thương</p>
+                </div>
+                <div class="mt-3 pt-2 border-t flex justify-between items-center">
+                    <span class="text-xs font-black text-rose-500">Giảm còn 59.9$</span>
+                    <button class="bg-stone-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg hover:bg-ptOrange hover:text-ptBrown transition">
+                        Mua ngay &gt;
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 4 -->
+            <div class="cute-shadow bg-white rounded-2xl p-3 border border-stone-100 flex flex-col justify-between">
+                <div>
+                    <div class="h-40 sm:h-48 bg-stone-200 rounded-xl overflow-hidden img-hover-zoom mb-3">
+                        <img src="https://picsum.photos/300/300?random=11" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-xs sm:text-sm text-stone-800">Bộ Sưu Tập Cá Mạch Ocean</h4>
+                    <p class="text-[10px] text-stone-400 mt-1">Gấu bông cá ôm ngủ siêu êm</p>
+                </div>
+                <div class="mt-3 pt-2 border-t flex justify-between items-center">
+                    <span class="text-xs font-black text-rose-500">Giảm còn 29.9$</span>
+                    <button class="bg-stone-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg hover:bg-ptOrange hover:text-ptBrown transition">
+                        Mua ngay &gt;
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
     </main>
 
-    <!-- LIGHTBOX (XEM ẢNH PHÓNG TO) -->
-    <div id="imageModal" class="fixed inset-0 bg-ptBrown/70 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4" onclick="closeModal()">
-        <img id="modalImg" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl border-4 border-white">
-    </div>
+    <!-- 9. FOOTER TRÂN TRỌNG (FOOTER SECTION) -->
+    <footer class="bg-stone-200 text-stone-600 text-xs py-8 border-t border-stone-300 mt-10">
+        <div class="max-w-6xl mx-auto px-4 space-y-6">
+            
+            <!-- Link điều hướng Footer -->
+            <div class="flex flex-wrap justify-center gap-6 font-semibold border-b border-stone-300 pb-4">
+                <a href="#" class="hover:text-stone-900">Tất Cả Sản Phẩm</a>
+                <span>|</span>
+                <a href="#" class="hover:text-stone-900">Hàng Mới Về</a>
+                <span>|</span>
+                <a href="#" class="hover:text-stone-900">Gấu Bông Lông Xù</a>
+                <span>|</span>
+                <a href="#" class="hover:text-stone-900">Móc Khóa Dễ Thương</a>
+                <span>|</span>
+                <a href="#" class="hover:text-stone-900">Đồ Chơi Xếp Hình</a>
+            </div>
 
-    <footer class="bg-amber-50/50 border-t border-amber-100 py-6 text-center text-xs text-stone-500">
-        © 2026 Pastel Studio • All Rights Reserved 🤎
+            <!-- Thông tin liên hệ & Icon dịch vụ -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+                <!-- Icon dịch vụ -->
+                <div class="flex gap-6">
+                    <div class="flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">✉️</span>
+                        <div>
+                            <div class="font-bold">Góp Ý & Đề Xuất</div>
+                            <div class="text-[10px] text-stone-400">Phản hồi nhanh chóng</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">📞</span>
+                        <div>
+                            <div class="font-bold">Liên Hệ Ngay</div>
+                            <div class="text-[10px] text-stone-400">Tư vấn tận tâm</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">🔗</span>
+                        <div>
+                            <div class="font-bold">Chia Sẻ Với Bạn Bè</div>
+                            <div class="text-[10px] text-stone-400">Cùng nhận ưu đãi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Số điện thoại & Bản quyền -->
+                <div class="text-right space-y-1">
+                    <div class="font-black text-base text-stone-800">0661-78294589</div>
+                    <div class="font-black text-base text-stone-800">0661-84201894</div>
+                    <div class="text-[10px] text-stone-400">© 2003-2026 TMALL.COM Bản quyền thuộc về Pastel Plush.</div>
+                </div>
+            </div>
+
+        </div>
     </footer>
 
-    <script>
-        function openModal(src) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('imageModal').classList.remove('hidden');
-        }
-        function closeModal() {
-            document.getElementById('imageModal').classList.add('hidden');
-        }
-    </script>
 </body>
 </html>
