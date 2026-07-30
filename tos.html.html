@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service (ToS) 📜</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ptGreen: '#C8E6C9',
+                        ptOrange: '#FFE0B2',
+                        ptYellow: '#FFF9C4',
+                        ptBrown: '#5D4037',
+                        ptCream: '#FFFDF9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFDF9; color: #5D4037; font-family: 'Segoe UI', system-ui, sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- MENU THANH ĐIỀU HƯỚNG -->
+    <nav class="sticky top-0 z-50 bg-[#FFFDF9]/90 backdrop-blur-md border-b border-amber-100 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <a href="index.html" class="text-xl font-black tracking-wide flex items-center gap-2">
+                <span class="bg-ptYellow px-3 py-1 rounded-full text-base shadow-sm">🌿</span>
+                <span class="text-ptBrown">Pastel Studio</span>
+            </a>
+            <div class="flex items-center gap-2 sm:gap-4 font-bold text-xs sm:text-sm">
+                <a href="index.html" class="px-4 py-2 rounded-full hover:bg-ptGreen transition">Gallery</a>
+                <a href="pricing.html" class="px-4 py-2 rounded-full hover:bg-ptOrange transition">Bảng Giá</a>
+                <a href="membership.html" class="px-4 py-2 rounded-full hover:bg-ptYellow transition">Chế độ Members</a>
+                <a href="tos.html" class="px-4 py-2 rounded-full bg-stone-200 text-ptBrown shadow-sm">ToS</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="text-center my-10 px-4">
+        <span class="bg-stone-200 text-xs font-bold px-3 py-1 rounded-full">TERMS OF SERVICE</span>
+        <h1 class="text-3xl font-black mt-2">Điều Khoản Dịch Vụ (ToS) 📝</h1>
+        <p class="text-stone-500 text-sm mt-1">Vui lòng đọc kỹ trước khi tiến hành đặt đơn (Commission)</p>
+    </div>
+
+    <main class="max-w-4xl mx-auto px-4 mb-20 space-y-6 flex-1 text-xs sm:text-sm leading-relaxed">
+
+        <!-- ĐIỀU 1 -->
+        <div class="bg-white p-6 rounded-3xl border border-stone-100 shadow-sm space-y-2">
+            <h3 class="font-bold text-base text-ptBrown flex items-center gap-2">
+                <span class="text-ptGreen">1.</span> Quy Trình Làm Việc (Workflow)
+            </h3>
+            <p class="text-stone-600">
+                • <strong>Bước 1:</strong> Khách hàng gửi Brief chi tiết (Mô tả ý tưởng, tài liệu tham khảo, nhân vật).<br>
+                • <strong>Bước 2:</strong> Chốt giá & Đặt cọc 50% tổng đơn hàng để bắt đầu lên Sketch / Demo.<br>
+                • <strong>Bước 3:</strong> Duyệt Demo Sketch (Được chỉnh sửa miễn phí theo gói giá).<br>
+                • <strong>Bước 4:</strong> Hoàn thiện Line/Color ➔ Khách thanh toán 50% còn lại ➔ Nhận file gốc sạch không Watermark qua BaiduPan / Google Drive.
+            </p>
+        </div>
+
+        <!-- ĐIỀU 2 -->
+        <div class="bg-white p-6 rounded-3xl border border-stone-100 shadow-sm space-y-2">
+            <h3 class="font-bold text-base text-ptBrown flex items-center gap-2">
+                <span class="text-ptOrange">2.</span> Thanh Toán & Hoàn Tiền (Payment & Refund)
+            </h3>
+            <p class="text-stone-600">
+                • Chấp nhận thanh toán qua: Chuyển khoản Ngân hàng, Ví điện tử, Alipay (支付宝).<br>
+                • Nếu lỗi giao dịch Alipay bị treo/hoàn tiền sau 24h, vui lòng đợi tiền hoàn về tài khoản rồi gửi lại vào mã nhận chính thức.<br>
+                • <strong>Chính sách Hủy đơn:</strong> 
+                <br>&nbsp;&nbsp;- Hủy trước khi vẽ Sketch: Hoàn lại 100% tiền cọc.
+                <br>&nbsp;&nbsp;- Hủy sau khi đã xong Sketch: Tiền cọc 50% không được hoàn lại.
+            </p>
+        </div>
+
+        <!-- ĐIỀU 3 -->
+        <div class="bg-white p-6 rounded-3xl border border-stone-100 shadow-sm space-y-2">
+            <h3 class="font-bold text-base text-ptBrown flex items-center gap-2">
+                <span class="text-ptYellow">3.</span> Quy Định File In Ấn & Bản Quyền
+            </h3>
+            <p class="text-stone-600">
+                • File gửi cho xưởng in mặc định là dạng **PDF/PNG chất lượng cao (300 DPI)**.<br>
+                • Khách hàng có quyền dùng tranh/thiết kế làm Avatar, Banner cá nhân, in ấn phi thương mại.<br>
+                • Nghiêm cấm sử dụng tranh/thiết kế vào mục đích huấn luyện AI (Artificial Intelligence) hoặc đăng ký bản quyền sản phẩm độc quyền khi chưa mua gói Commercial Rights.
+            </p>
+        </div>
+
+    </main>
+
+    <footer class="bg-amber-50/50 border-t border-amber-100 py-6 text-center text-xs text-stone-500 mt-auto">
+        © 2026 Pastel Studio • All Rights Reserved 🤎
+    </footer>
+
+</body>
+</html>

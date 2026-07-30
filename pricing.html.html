@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Giá Commission Chi Tiết 💸</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ptGreen: '#C8E6C9',
+                        ptOrange: '#FFE0B2',
+                        ptYellow: '#FFF9C4',
+                        ptBrown: '#5D4037',
+                        ptCream: '#FFFDF9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFDF9; color: #5D4037; font-family: 'Segoe UI', system-ui, sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- MENU THANH ĐIỀU HƯỚNG -->
+    <nav class="sticky top-0 z-50 bg-[#FFFDF9]/90 backdrop-blur-md border-b border-amber-100 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <a href="index.html" class="text-xl font-black tracking-wide flex items-center gap-2">
+                <span class="bg-ptYellow px-3 py-1 rounded-full text-base shadow-sm">🌿</span>
+                <span class="text-ptBrown">Pastel Studio</span>
+            </a>
+            <div class="flex items-center gap-2 sm:gap-4 font-bold text-xs sm:text-sm">
+                <a href="index.html" class="px-4 py-2 rounded-full hover:bg-ptGreen transition">Gallery</a>
+                <a href="pricing.html" class="px-4 py-2 rounded-full bg-ptOrange text-ptBrown shadow-sm">Bảng Giá</a>
+                <a href="membership.html" class="px-4 py-2 rounded-full hover:bg-ptYellow transition">Chế độ Members</a>
+                <a href="tos.html" class="px-4 py-2 rounded-full hover:bg-stone-200 transition">ToS</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="text-center my-10 px-4">
+        <span class="bg-ptOrange text-xs font-bold px-3 py-1 rounded-full">PRICING LIST 2026</span>
+        <h1 class="text-3xl font-black mt-2">Bảng Giá Dịch Vụ & Commission 💌</h1>
+        <p class="text-stone-500 text-sm mt-1">Bảng giá tham khảo chi tiết theo từng hạng mục công việc</p>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-4 mb-20 space-y-12 flex-1">
+
+        <!-- MỤC 1: MINH HỌA (ILLUSTRATION) -->
+        <section>
+            <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-ptBrown">
+                <span class="p-1.5 bg-ptGreen rounded-lg">🎨</span> 1. Minh Họa & Vẽ Nhân Vật (Illustration)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white border-2 border-stone-100 rounded-3xl p-6 shadow-sm hover:border-ptGreen transition">
+                    <span class="text-xs bg-ptGreen px-2.5 py-1 rounded-full font-bold">Chibi / Avatar</span>
+                    <h3 class="font-bold text-lg mt-3">Headshot / Bustup</h3>
+                    <div class="text-xl font-black my-2 text-emerald-700">150.000đ - 250.000đ</div>
+                    <ul class="text-xs space-y-2 text-stone-600 mt-4 border-t pt-3">
+                        <li>• Size: 2000x2000px (300 DPI)</li>
+                        <li>• Phông nền đơn giản / Trong suốt</li>
+                        <li>• Sửa Demo Sketch: 2 lần</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border-2 border-ptOrange rounded-3xl p-6 shadow-md relative">
+                    <span class="absolute -top-3 right-4 bg-ptOrange text-[10px] font-extrabold px-3 py-0.5 rounded-full">POPULAR 🔥</span>
+                    <span class="text-xs bg-ptOrange px-2.5 py-1 rounded-full font-bold">Half-Body</span>
+                    <h3 class="font-bold text-lg mt-3">Vẽ Nửa Người</h3>
+                    <div class="text-xl font-black my-2 text-orange-600">350.000đ - 500.000đ</div>
+                    <ul class="text-xs space-y-2 text-stone-600 mt-4 border-t pt-3">
+                        <li>• Bao gồm BG vừa phải / hoa lá</li>
+                        <li>• Xuất file PNG / JPG nét cao</li>
+                        <li>• Sửa Demo Sketch: 3 lần</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border-2 border-stone-100 rounded-3xl p-6 shadow-sm hover:border-ptYellow transition">
+                    <span class="text-xs bg-ptYellow px-2.5 py-1 rounded-full font-bold">Full CG</span>
+                    <h3 class="font-bold text-lg mt-3">Full-Body + Background</h3>
+                    <div class="text-xl font-black my-2 text-amber-700">650.000đ - 1.200.000đ</div>
+                    <ul class="text-xs space-y-2 text-stone-600 mt-4 border-t pt-3">
+                        <li>• Bối cảnh phức tạp / Đổ bóng chi tiết</li>
+                        <li>• Tặng kèm file Avatar tách riêng</li>
+                        <li>• Ưu tiên xử lý nhanh</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MỤC 2: THIẾT KẾ ĐỒ HỌA & MXH (GRAPHIC & SOCIAL BANNER) -->
+        <section>
+            <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-ptBrown">
+                <span class="p-1.5 bg-ptOrange rounded-lg">🖼️</span> 2. Thiết Kế Banner & Layout MXH
+            </h2>
+            <div class="bg-white rounded-3xl border border-stone-100 p-6 shadow-sm overflow-x-auto">
+                <table class="w-full text-left text-xs text-stone-600">
+                    <thead class="bg-amber-50/60 text-ptBrown text-xs font-bold uppercase">
+                        <tr>
+                            <th class="p-3 rounded-l-xl">Hạng mục</th>
+                            <th class="p-3">Mô tả sản phẩm</th>
+                            <th class="p-3">Thời gian</th>
+                            <th class="p-3 rounded-r-xl">Đơn giá</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-stone-100">
+                        <tr>
+                            <td class="p-3 font-bold text-stone-800">Banner Weibo / X / Facebook</td>
+                            <td class="p-3">Header cá nhân, Banner sự kiện commission</td>
+                            <td class="p-3">1 - 2 Ngày</td>
+                            <td class="p-3 font-bold text-orange-600">200.000đ - 350.000đ</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-stone-800">Thumbnail Youtube / Bilibili</td>
+                            <td class="p-3">Khung ảnh bìa video thu hút, chuẩn tỉ lệ 16:9</td>
+                            <td class="p-3">1 Ngày</td>
+                            <td class="p-3 font-bold text-orange-600">150.000đ / Hình</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-stone-800">Stream Overlay Set (VTuber)</td>
+                            <td class="p-3">Khung chat, màn hình Offline, Stream schedule</td>
+                            <td class="p-3">3 - 5 Ngày</td>
+                            <td class="p-3 font-bold text-orange-600">500.000đ - 900.000đ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- MỤC 3: THIẾT KẾ SẢN PHẨM IN ẤN (MERCHANDISE / GOODS) -->
+        <section>
+            <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-ptBrown">
+                <span class="p-1.5 bg-ptYellow rounded-lg">📦</span> 3. Thiết Kế Ấn Phẩm In Ấn (Merch / Goods)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-5 rounded-3xl border border-amber-100 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-sm">Standee Mica / Móc Khóa Acrylic</h4>
+                        <span class="bg-ptYellow px-2 py-0.5 rounded-md text-[11px] font-bold">180k - 300k</span>
+                    </div>
+                    <p class="text-xs text-stone-500">Xử lý file chuẩn hệ màu CMYK, sẵn sàng gửi file PDF/PSD trực tiếp cho xưởng in.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-3xl border border-amber-100 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-sm">Bìa Sách / Photobook / Card Bo Góc</h4>
+                        <span class="bg-ptYellow px-2 py-0.5 rounded-md text-[11px] font-bold">250k - 600k</span>
+                    </div>
+                    <p class="text-xs text-stone-500">Căn chỉnh lề tràn viền (Bleed margin) chuẩn kích thước của từng xưởng sản xuất.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MỤC 4: PHỤ PHÍ & QUYỀN SỬ DỤNG (ADD-ONS & COMMERCIAL) -->
+        <section class="bg-amber-50/50 p-6 rounded-3xl border border-amber-100 space-y-4">
+            <h2 class="text-base font-bold flex items-center gap-2 text-ptBrown">
+                <span>➕</span> Phụ Phí & Điều Khoản Bổ Sung (Add-ons)
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                <div class="bg-white p-3.5 rounded-2xl border border-stone-100">
+                    <span class="font-bold text-stone-800">⚡ Lấy Gấp (Rush Fee):</span>
+                    <p class="text-stone-500 mt-1">+30% đến +50% tổng giá trị đơn hàng (Nhận trong 24h - 48h).</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-stone-100">
+                    <span class="font-bold text-stone-800">📂 File Nguồn (PSD / AI / Clip Studio):</span>
+                    <p class="text-stone-500 mt-1">+20% phí tách layer sạch sẽ gửi kèm link BaiduPan / Drive.</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-stone-100">
+                    <span class="font-bold text-stone-800">💼 Quyền Thương Mại (Commercial Rights):</span>
+                    <p class="text-stone-500 mt-1">x1.5 đến x2 đơn giá gốc (Cho phép bán merch, in số lượng lớn).</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-amber-50/50 border-t border-amber-100 py-6 text-center text-xs text-stone-500 mt-auto">
+        © 2026 Pastel Studio • All Rights Reserved 🤎
+    </footer>
+
+</body>
+</html>
