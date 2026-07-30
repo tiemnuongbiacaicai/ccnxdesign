@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chế Độ Members / VIP 👑</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ptGreen: '#C8E6C9',
+                        ptOrange: '#FFE0B2',
+                        ptYellow: '#FFF9C4',
+                        ptBrown: '#5D4037',
+                        ptCream: '#FFFDF9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFDF9; color: #5D4037; font-family: 'Segoe UI', system-ui, sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- MENU THANH ĐIỀU HƯỚNG -->
+    <nav class="sticky top-0 z-50 bg-[#FFFDF9]/90 backdrop-blur-md border-b border-amber-100 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <a href="index.html" class="text-xl font-black tracking-wide flex items-center gap-2">
+                <span class="bg-ptYellow px-3 py-1 rounded-full text-base shadow-sm">🌿</span>
+                <span class="text-ptBrown">Pastel Studio</span>
+            </a>
+            <div class="flex items-center gap-2 sm:gap-4 font-bold text-xs sm:text-sm">
+                <a href="index.html" class="px-4 py-2 rounded-full hover:bg-ptGreen transition">Gallery</a>
+                <a href="pricing.html" class="px-4 py-2 rounded-full hover:bg-ptOrange transition">Bảng Giá</a>
+                <a href="membership.html" class="px-4 py-2 rounded-full bg-ptYellow text-ptBrown shadow-sm">Chế độ Members</a>
+                <a href="tos.html" class="px-4 py-2 rounded-full hover:bg-stone-200 transition">ToS</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="text-center my-10 px-4">
+        <span class="bg-ptYellow text-xs font-bold px-3 py-1 rounded-full">SPECIAL TIERS</span>
+        <h1 class="text-3xl font-black mt-2">Quyền Lợi Hội Viên (Membership) ⭐</h1>
+        <p class="text-stone-500 text-sm mt-1">Trở thành Member để nhận ưu đãi chiết khấu & giữ Slot Commission ưu tiên</p>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-4 mb-20 space-y-8 flex-1">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- TIER 1 -->
+            <div class="bg-white border-2 border-stone-100 rounded-3xl p-6 text-center shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-16 h-16 mx-auto bg-ptGreen/40 rounded-full flex items-center justify-center text-2xl mb-3">🌱</div>
+                    <h3 class="font-extrabold text-lg">Mầm Nhỏ (Tier 1)</h3>
+                    <p class="text-stone-400 text-xs my-1">Tích lũy từ 2 đơn hàng</p>
+                    <ul class="text-left text-xs space-y-2.5 text-stone-600 mt-6 border-t pt-4">
+                        <li>✔️ Giảm 5% cho tất cả đơn tiếp theo</li>
+                        <li>✔️ Nhận file xem trước (Preview) sớm</li>
+                        <li>✔️ Tặng kèm Brush/Asset quà tặng</li>
+                    </ul>
+                </div>
+                <button class="w-full mt-6 bg-ptGreen py-2 rounded-xl text-xs font-bold">Đã tự động kích hoạt</button>
+            </div>
+
+            <!-- TIER 2 -->
+            <div class="bg-white border-2 border-ptOrange rounded-3xl p-6 text-center shadow-md flex flex-col justify-between relative">
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-ptOrange text-[10px] font-bold px-3 py-0.5 rounded-full">ĐƯỢC YÊU THÍCH</span>
+                <div>
+                    <div class="w-16 h-16 mx-auto bg-ptOrange/50 rounded-full flex items-center justify-center text-2xl mb-3">🌿</div>
+                    <h3 class="font-extrabold text-lg">Cành Xanh (Tier 2)</h3>
+                    <p class="text-stone-400 text-xs my-1">Tích lũy từ 5 đơn hàng</p>
+                    <ul class="text-left text-xs space-y-2.5 text-stone-600 mt-6 border-t pt-4">
+                        <li>✔️ Giảm 10% cho tất cả đơn hàng</li>
+                        <li>✔️ Khóa slot ưu tiên (Không chờ hàng đợi)</li>
+                        <li>✔️ Chỉnh sửa Demo 4 lần miễn phí</li>
+                    </ul>
+                </div>
+                <button class="w-full mt-6 bg-ptOrange py-2 rounded-xl text-xs font-bold">Khám phá ngay</button>
+            </div>
+
+            <!-- TIER 3 -->
+            <div class="bg-white border-2 border-stone-100 rounded-3xl p-6 text-center shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-16 h-16 mx-auto bg-ptYellow/60 rounded-full flex items-center justify-center text-2xl mb-3">🌸</div>
+                    <h3 class="font-extrabold text-lg">Hoa Nở (VIP Tier)</h3>
+                    <p class="text-stone-400 text-xs my-1">Khách hàng thân thiết / Đối tác</p>
+                    <ul class="text-left text-xs space-y-2.5 text-stone-600 mt-6 border-t pt-4">
+                        <li>✔️ Giảm 15% trọn đời</li>
+                        <li>✔️ Tặng kèm File PSD gốc miễn phí</li>
+                        <li>✔️ Hỗ trợ sửa file sau bàn giao 30 ngày</li>
+                    </ul>
+                </div>
+                <button class="w-full mt-6 bg-ptYellow py-2 rounded-xl text-xs font-bold">Liên hệ nâng hạng</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-amber-50/50 border-t border-amber-100 py-6 text-center text-xs text-stone-500 mt-auto">
+        © 2026 Pastel Studio • All Rights Reserved 🤎
+    </footer>
+
+</body>
+</html>
