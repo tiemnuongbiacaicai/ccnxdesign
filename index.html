@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pastel Design Studio & Portfolio ✨</title>
+    <title>My Design Portfolio 🌿</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,468 +11,109 @@
             theme: {
                 extend: {
                     colors: {
-                        ptGreen: '#D4EDDA',   // Xanh lá pastel
-                        ptOrange: '#FFE5D9',  // Cam pastel
-                        ptYellow: '#FFF3CD',  // Vàng pastel
-                        ptBrown: '#5D4037',   // Nâu ấm chủ đạo
-                        ptCream: '#FFFDF9',   // Nền kem sáng
-                        ptAccent: '#FFB74D',  // Cam nhấn
-                        ptSoftGray: '#F5F2EB'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-6px)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    },
-                    animation: {
-                        float: 'float 4s ease-in-out infinite',
-                        fade: 'fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        ptGreen: '#C8E6C9',
+                        ptOrange: '#FFE0B2',
+                        ptYellow: '#FFF9C4',
+                        ptBrown: '#5D4037',
+                        ptCream: '#FFFDF9',
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #FFFDF9; color: #5D4037; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-        .img-container { overflow: hidden; }
-        .img-container img { transition: transform 0.5s ease; }
-        .img-container:hover img { transform: scale(1.05); }
-        .cute-card { transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-        .cute-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -6px rgba(93, 64, 55, 0.1); }
-        .nav-btn.active { background-color: #FFE5D9; color: #5D4037; font-weight: 800; border-bottom: 2px solid #FFB74D; }
+        body { background-color: #FFFDF9; color: #5D4037; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        .cute-card { border: 2px solid #EFEBE9; transition: all 0.3s ease; }
+        .cute-card:hover { transform: translateY(-4px); border-color: #FFE0B2; box-shadow: 0 10px 20px rgba(93,64,55,0.08); }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-ptOrange">
+<body class="min-h-screen flex flex-col">
 
-    <!-- ================= 1. NAVIGATION BAR (THANH MENU) ================= -->
-    <header class="sticky top-0 z-50 bg-[#FFFDF9]/90 backdrop-blur-md border-b border-stone-200">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <!-- Logo -->
-            <button onclick="switchTab('gallery')" class="font-extrabold text-lg sm:text-xl flex items-center gap-2">
-                <span class="w-9 h-9 rounded-full bg-ptOrange flex items-center justify-center animate-float shadow-sm">🎨</span>
-                <span class="text-ptBrown tracking-tight">Pastel Studio</span>
-            </button>
-
-            <!-- Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-stone-600">
-                <button onclick="switchTab('gallery')" class="nav-btn px-3 py-2 rounded-xl hover:bg-ptOrange/50 transition" id="btn-gallery">Gallery & Blog</button>
-                <button onclick="switchTab('services')" class="nav-btn px-3 py-2 rounded-xl hover:bg-ptOrange/50 transition" id="btn-services">Dịch Vụ Design</button>
-                <button onclick="switchTab('pricing')" class="nav-btn px-3 py-2 rounded-xl hover:bg-ptOrange/50 transition" id="btn-pricing">Bảng Giá</button>
-                <button onclick="switchTab('members')" class="nav-btn px-3 py-2 rounded-xl hover:bg-ptOrange/50 transition" id="btn-members">Thành Viên 👑</button>
-                <button onclick="switchTab('tos')" class="nav-btn px-3 py-2 rounded-xl hover:bg-ptOrange/50 transition" id="btn-tos">Điều Khoản (ToS)</button>
-            </nav>
-
-            <!-- CTA Order Button -->
-            <button onclick="switchTab('order')" class="bg-ptBrown text-white font-bold text-xs px-4 py-2.5 rounded-full hover:bg-ptAccent hover:text-ptBrown transition shadow-sm">
-                Đặt Thiết Kế ✨
-            </button>
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-[#FFFDF9]/90 backdrop-blur-md border-b border-orange-100 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-wide flex items-center gap-2">
+                <span class="bg-ptYellow px-3 py-1 rounded-full text-base">✨</span>
+                <span>My Portfolio</span>
+            </a>
+            <div class="flex gap-4 font-semibold text-sm">
+                <a href="index.html" class="px-4 py-2 rounded-full bg-ptGreen text-ptBrown shadow-sm">Portfolio</a>
+                <a href="pricing.html" class="px-4 py-2 rounded-full hover:bg-ptOrange transition">Bảng Giá (Commission)</a>
+            </div>
         </div>
+    </nav>
 
-        <!-- Mobile Nav Bar (Dành cho thiết bị di động) -->
-        <div class="lg:hidden flex justify-around bg-stone-100 px-2 py-2 text-[11px] font-bold border-t border-stone-200">
-            <button onclick="switchTab('gallery')">Gallery</button>
-            <button onclick="switchTab('services')">Dịch Vụ</button>
-            <button onclick="switchTab('pricing')">Bảng Giá</button>
-            <button onclick="switchTab('members')">Members</button>
-            <button onclick="switchTab('tos')">ToS</button>
+    <!-- HERO SECTION -->
+    <header class="max-w-4xl mx-auto text-center my-12 px-4">
+        <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-ptOrange p-1 shadow-inner">
+            <!-- Thay ảnh Avatar của bạn ở đây -->
+            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=designer" alt="Avatar" class="w-full h-full rounded-full bg-white object-cover">
         </div>
+        <h1 class="text-3xl font-extrabold mb-2">Xin chào, mình là Designer / Artist! 🎨</h1>
+        <p class="text-stone-600 max-w-lg mx-auto text-sm leading-relaxed">
+            Chuyên thiết kế Banner, UI/UX, Illustration & Commission. Rất vui được hợp tác cùng bạn! 🌿
+        </p>
     </header>
 
-    <!-- ================= MAIN CONTENT AREA ================= -->
-    <main class="max-w-6xl mx-auto px-4 py-8 w-full flex-1">
+    <!-- PORTFOLIO GALLERY (Masonry Grid - Tự tương thích mọi cỡ ảnh) -->
+    <main class="max-w-6xl mx-auto px-4 mb-20 flex-1">
+        <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-ptGreen inline-block"></span>
+            Tác Phẩm Nổi Bật
+        </h2>
 
-        <!-- ================= PAGE 1: GALLERY & PORTFOLIO BLOG ================= -->
-        <div id="page-gallery" class="page-content space-y-10 animate-fade">
-            <!-- Hero Banner -->
-            <section class="relative bg-gradient-to-r from-ptGreen/40 via-ptOrange/40 to-ptYellow/40 rounded-3xl p-8 sm:p-12 text-center border border-stone-200">
-                <div class="max-w-xl mx-auto space-y-3">
-                    <span class="bg-white/80 text-ptBrown text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Design Showcase & Portfolio</span>
-                    <h1 class="text-2xl sm:text-4xl font-black text-ptBrown leading-tight">Góc Sáng Tạo Pastel Ấm Áp & Dễ Thương</h1>
-                    <p class="text-xs text-stone-600">Trưng bày dự án Chibi, Mascot, Nhận diện thương hiệu & UI/UX Web Design</p>
+        <!-- Khung chứa ảnh: Tự động xếp 1 cột (Mobile), 2 cột (Tablet), 3 cột (PC) -->
+        <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+
+            <!-- MẪU ẢNH 1 (Dạng dọc) -->
+            <div class="cute-card bg-white rounded-2xl overflow-hidden p-3 break-inside-avoid">
+                <img src="https://picsum.photos/400/600" alt="Work 1" class="w-full rounded-xl cursor-pointer hover:opacity-95" onclick="openModal(this.src)">
+                <div class="mt-3 px-1">
+                    <span class="text-xs bg-ptYellow px-2 py-1 rounded-md font-semibold">Illustration</span>
+                    <h3 class="font-bold text-base mt-1">Minh họa Chibi Pastel</h3>
                 </div>
-            </section>
-
-            <!-- Divider Header dạng Pill (Tham khảo UI Mẫu Prototype) -->
-            <div class="bg-ptBrown text-white px-6 py-2.5 rounded-full flex justify-between items-center text-xs font-bold shadow-sm">
-                <span>DỰ ÁN NỔI BẬT >> Đa Dạng Tỷ Lệ Ảnh</span>
-                <span class="opacity-80">CLICK xem chi tiết</span>
             </div>
 
-            <!-- Bento Grid - Hỗ trợ nhiều kích thước ảnh (Size Dọc, Vuông, Ngang) -->
-            <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <!-- Size Dọc (Aspect Dọc 4:5 hoặc 3:4) -->
-                <div class="img-container cute-card bg-stone-100 rounded-2xl relative h-80 md:h-full min-h-[320px] flex items-end p-4 border border-stone-200">
-                    <img src="https://picsum.photos/400/600?random=1" class="absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Design Mascot">
-                    <div class="relative z-10 bg-white/95 backdrop-blur-sm p-3 rounded-xl w-full border border-stone-100">
-                        <span class="text-[10px] bg-ptGreen text-ptBrown font-bold px-2 py-0.5 rounded-md">Size Dọc (3:4)</span>
-                        <h3 class="font-bold text-sm mt-1">Linh Vật Mascot "Mầm Xanh"</h3>
-                    </div>
+            <!-- MẪU ẢNH 2 (Dạng vuông) -->
+            <div class="cute-card bg-white rounded-2xl overflow-hidden p-3 break-inside-avoid">
+                <img src="https://picsum.photos/400/400" alt="Work 2" class="w-full rounded-xl cursor-pointer hover:opacity-95" onclick="openModal(this.src)">
+                <div class="mt-3 px-1">
+                    <span class="text-xs bg-ptGreen px-2 py-1 rounded-md font-semibold">UI Design</span>
+                    <h3 class="font-bold text-base mt-1">Thiết kế Giao diện Web</h3>
                 </div>
-
-                <!-- Cột Size Vuông & Size Ngang -->
-                <div class="flex flex-col gap-4">
-                    <div class="img-container cute-card bg-stone-100 rounded-2xl relative h-44 flex items-end p-3 border border-stone-200">
-                        <img src="https://picsum.photos/500/300?random=2" class="absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Banner Design">
-                        <div class="relative z-10 bg-white/95 backdrop-blur-sm p-2 rounded-lg w-full">
-                            <span class="text-[9px] bg-ptOrange text-ptBrown font-bold px-2 py-0.5 rounded">Size Ngang (16:9)</span>
-                            <h4 class="font-bold text-xs">Banner Branding Fanpage</h4>
-                        </div>
-                    </div>
-                    <div class="img-container cute-card bg-stone-100 rounded-2xl relative h-44 flex items-end p-3 border border-stone-200">
-                        <img src="https://picsum.photos/400/400?random=3" class="absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Sticker Design">
-                        <div class="relative z-10 bg-white/95 backdrop-blur-sm p-2 rounded-lg w-full">
-                            <span class="text-[9px] bg-ptYellow text-ptBrown font-bold px-2 py-0.5 rounded">Size Vuông (1:1)</span>
-                            <h4 class="font-bold text-xs">Bộ Sticker Emote Chibi</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cột Size Tự Do -->
-                <div class="flex flex-col gap-4">
-                    <div class="img-container cute-card bg-stone-100 rounded-2xl relative h-44 flex items-end p-3 border border-stone-200">
-                        <img src="https://picsum.photos/400/320?random=4" class="absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Packaging">
-                        <div class="relative z-10 bg-white/95 backdrop-blur-sm p-2 rounded-lg w-full">
-                            <h4 class="font-bold text-xs">Bao Bì Sản Phẩm Soft Merch</h4>
-                        </div>
-                    </div>
-                    <div class="img-container cute-card bg-stone-100 rounded-2xl relative h-44 flex items-end p-3 border border-stone-200">
-                        <img src="https://picsum.photos/400/330?random=5" class="absolute inset-0 w-full h-full object-cover rounded-2xl" alt="UI Design">
-                        <div class="relative z-10 bg-white/95 backdrop-blur-sm p-2 rounded-lg w-full">
-                            <h4 class="font-bold text-xs">Giao Diện Web Shop Gấu Bông</h4>
-                        </div>
-                    </div>
-                </section>
-
-            <!-- Projects Numerated List Layout (Thiết kế tham khảo mẫu 01, 02 từ ảnh Codex) -->
-            <div class="space-y-6 pt-4">
-                <div class="bg-ptOrange/40 text-ptBrown px-6 py-2.5 rounded-full text-xs font-bold border border-orange-200">
-                    DANH SÁCH DỰ ÁN CHI TIẾT
-                </div>
-
-                <!-- Project 01 Card -->
-                <article class="cute-card bg-white rounded-3xl p-6 relative border border-stone-200 flex flex-col md:flex-row gap-6 items-center">
-                    <div class="absolute -top-3 right-6 bg-ptOrange text-ptBrown border border-orange-300 px-4 py-1 rounded-2xl text-center shadow-sm">
-                        <span class="text-[9px] block font-bold tracking-wider">PROJECT</span>
-                        <span class="text-lg font-black leading-none">01</span>
-                    </div>
-                    <div class="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden img-container bg-stone-100">
-                        <img src="https://picsum.photos/600/400?random=11" class="w-full h-full object-cover" alt="Project 01">
-                    </div>
-                    <div class="w-full md:w-1/2 space-y-3">
-                        <span class="text-[10px] bg-ptGreen text-ptBrown font-bold px-2.5 py-1 rounded-full">Branding & Mascot</span>
-                        <h3 class="text-lg font-bold text-ptBrown">Bộ Sưu Tập Linh Vật "Pastel Bear"</h3>
-                        <p class="text-xs text-stone-500 leading-relaxed">Thiết kế linh vật thương hiệu dạng vector 2D thân thiện, phục vụ in ấn ấn phẩm, thiệp tặng và sản xuất móc khóa acrylic.</p>
-                        <div class="flex gap-2 pt-2">
-                            <span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2.5 py-1 rounded-lg">Adobe Illustrator</span>
-                            <span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2.5 py-1 rounded-lg">Procreate</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 02 Card -->
-                <article class="cute-card bg-white rounded-3xl p-6 relative border border-stone-200 flex flex-col md:flex-row-reverse gap-6 items-center">
-                    <div class="absolute -top-3 left-6 bg-ptGreen text-ptBrown border border-green-300 px-4 py-1 rounded-2xl text-center shadow-sm">
-                        <span class="text-[9px] block font-bold tracking-wider">PROJECT</span>
-                        <span class="text-lg font-black leading-none">02</span>
-                    </div>
-                    <div class="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden img-container bg-stone-100">
-                        <img src="https://picsum.photos/600/400?random=12" class="w-full h-full object-cover" alt="Project 02">
-                    </div>
-                    <div class="w-full md:w-1/2 space-y-3">
-                        <span class="text-[10px] bg-ptYellow text-ptBrown font-bold px-2.5 py-1 rounded-full">UI/UX Website</span>
-                        <h3 class="text-lg font-bold text-ptBrown">Giao Diện Web Shop Phụ Kiện Cute</h3>
-                        <p class="text-xs text-stone-500 leading-relaxed">Layout web mượt mà, tông màu ấm áp pastel giúp tăng tỷ lệ chuyển đổi cho các shop quà tặng handmade.</p>
-                        <div class="flex gap-2 pt-2">
-                            <span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2.5 py-1 rounded-lg">Figma UI</span>
-                            <span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2.5 py-1 rounded-lg">Tailwind CSS</span>
-                        </div>
-                    </div>
-                </article>
             </div>
+
+            <!-- MẪU ẢNH 3 (Dạng ngang) -->
+            <div class="cute-card bg-white rounded-2xl overflow-hidden p-3 break-inside-avoid">
+                <img src="https://picsum.photos/500/300" alt="Work 3" class="w-full rounded-xl cursor-pointer hover:opacity-95" onclick="openModal(this.src)">
+                <div class="mt-3 px-1">
+                    <span class="text-xs bg-ptOrange px-2 py-1 rounded-md font-semibold">Banner</span>
+                    <h3 class="font-bold text-base mt-1">Banner Sự kiện Weibo/X</h3>
+                </div>
+            </div>
+
+            <!-- MẸO: Bạn chỉ cần copy-paste thẻ <div class="cute-card..."> ở trên để thêm bao nhiêu ảnh tùy thích! -->
+
         </div>
-
-        <!-- ================= PAGE 2: DỊCH VỤ DESIGN (DESIGN SERVICES) ================= -->
-        <div id="page-services" class="page-content space-y-8 hidden animate-fade">
-            <div class="text-center py-4 space-y-2">
-                <span class="bg-ptGreen text-ptBrown text-[11px] font-bold px-3 py-1 rounded-full">SERVICES</span>
-                <h2 class="text-2xl sm:text-3xl font-black text-ptBrown">Dịch Vụ Thiết Kế Nổi Bật ✨</h2>
-                <p class="text-xs text-stone-500">Giải pháp hình ảnh toàn diện từ cá nhân tới doanh nghiệp</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Service Card 1 -->
-                <div class="cute-card bg-white p-6 rounded-3xl border-2 border-ptGreen space-y-3 relative overflow-hidden">
-                    <div class="w-12 h-12 rounded-2xl bg-ptGreen flex items-center justify-center text-2xl">🧸</div>
-                    <h3 class="font-bold text-base text-ptBrown">Vẽ Chibi & Character Design</h3>
-                    <p class="text-xs text-stone-500 leading-relaxed">Thiết kế nhân vật đại diện, avatar Chibi cá nhân, Sticker emote cho Discord/Twitch/Zalo theo đúng yêu cầu.</p>
-                    <button onclick="switchTab('order')" class="text-xs font-bold text-ptBrown underline hover:text-ptAccent inline-flex items-center gap-1">Đặt dịch vụ này →</button>
-                </div>
-
-                <!-- Service Card 2 -->
-                <div class="cute-card bg-white p-6 rounded-3xl border-2 border-ptOrange space-y-3 relative overflow-hidden">
-                    <div class="w-12 h-12 rounded-2xl bg-ptOrange flex items-center justify-center text-2xl">🎨</div>
-                    <h3 class="font-bold text-base text-ptBrown">Bộ Nhận Diện Thương Hiệu</h3>
-                    <p class="text-xs text-stone-500 leading-relaxed">Thiết kế Logo, Bảng màu chuẩn, Typography, Card Visit, Standee và Banner mạng xã hội đồng bộ tone pastel.</p>
-                    <button onclick="switchTab('order')" class="text-xs font-bold text-ptBrown underline hover:text-ptAccent inline-flex items-center gap-1">Đặt dịch vụ này →</button>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="cute-card bg-white p-6 rounded-3xl border-2 border-ptYellow space-y-3 relative overflow-hidden">
-                    <div class="w-12 h-12 rounded-2xl bg-ptYellow flex items-center justify-center text-2xl">🛍️</div>
-                    <h3 class="font-bold text-base text-ptBrown">Merchandise & Packaging Design</h3>
-                    <p class="text-xs text-stone-500 leading-relaxed">Vẽ pattern in bao bì, móc khóa acrylic, bao lì xì, túi vải tote, sổ tay quà tặng dễ thương.</p>
-                    <button onclick="switchTab('order')" class="text-xs font-bold text-ptBrown underline hover:text-ptAccent inline-flex items-center gap-1">Đặt dịch vụ này →</button>
-                </div>
-
-                <!-- Service Card 4 -->
-                <div class="cute-card bg-white p-6 rounded-3xl border-2 border-stone-200 space-y-3 relative overflow-hidden">
-                    <div class="w-12 h-12 rounded-2xl bg-stone-100 flex items-center justify-center text-2xl">💻</div>
-                    <h3 class="font-bold text-base text-ptBrown">UI/UX Web Portfolio Cute</h3>
-                    <p class="text-xs text-stone-500 leading-relaxed">Lên ý tưởng thiết kế giao diện Figma & Hỗ trợ dựng sẵn code chuẩn Single Page deploy nhanh lên GitHub Pages.</p>
-                    <button onclick="switchTab('order')" class="text-xs font-bold text-ptBrown underline hover:text-ptAccent inline-flex items-center gap-1">Đặt dịch vụ này →</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= PAGE 3: TRANG BẢNG GIÁ (PRICING) ================= -->
-        <div id="page-pricing" class="page-content space-y-8 hidden animate-fade">
-            <div class="text-center py-4 space-y-2">
-                <span class="bg-ptYellow text-ptBrown text-[11px] font-bold px-3 py-1 rounded-full">PRICING LIST</span>
-                <h2 class="text-2xl sm:text-3xl font-black text-ptBrown">Bảng Giá Dịch Vụ Công Khai ✨</h2>
-                <p class="text-xs text-stone-500">Minh bạch chi phí, không phát sinh khoản phí ẩn</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Basic Plan -->
-                <div class="cute-card bg-white rounded-3xl p-6 border-2 border-ptGreen flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <span class="bg-ptGreen text-ptBrown font-bold text-[10px] px-3 py-1 rounded-full inline-block">GÓI CÁ NHÂN</span>
-                        <h3 class="font-bold text-base">Chibi Avatar / Icon</h3>
-                        <div class="text-2xl font-black text-ptBrown">350.000 <span class="text-xs font-normal text-stone-500">VNĐ</span></div>
-                        <ul class="text-xs space-y-2.5 text-stone-600 border-t pt-4">
-                            <li class="flex items-center gap-2">✔ 1 Nhân vật vẽ Chibi theo mẫu</li>
-                            <li class="flex items-center gap-2">✔ File PNG trong suốt / JPG 300DPI</li>
-                            <li class="flex items-center gap-2">✔ Miễn phí sửa nét 2 lần</li>
-                        </ul>
-                    </div>
-                    <button onclick="switchTab('order')" class="mt-6 w-full bg-ptGreen text-ptBrown font-bold text-xs py-3 rounded-2xl hover:bg-ptYellow transition">Chọn Gói Này</button>
-                </div>
-
-                <!-- Popular Plan -->
-                <div class="cute-card bg-ptOrange/20 rounded-3xl p-6 border-2 border-ptAccent flex flex-col justify-between relative shadow-md">
-                    <span class="absolute -top-3 right-6 bg-ptAccent text-ptBrown text-[10px] font-extrabold px-3 py-1 rounded-full shadow-sm">MOST POPULAR</span>
-                    <div class="space-y-4">
-                        <span class="bg-ptOrange text-ptBrown font-bold text-[10px] px-3 py-1 rounded-full inline-block">GÓI BRANDING SHOP</span>
-                        <h3 class="font-bold text-base">Combo Nhận Diện Thương Hiệu</h3>
-                        <div class="text-2xl font-black text-ptBrown">1.800.000 <span class="text-xs font-normal text-stone-500">VNĐ</span></div>
-                        <ul class="text-xs space-y-2.5 text-stone-600 border-t pt-4">
-                            <li class="flex items-center gap-2">✔ Logo + Mascot đơn giản</li>
-                            <li class="flex items-center gap-2">✔ Banner Fanpage & Template Shopee</li>
-                            <li class="flex items-center gap-2">✔ Bàn giao file gốc AI / PSD / Vector</li>
-                            <li class="flex items-center gap-2">✔ Miễn phí sửa nét 4 lần</li>
-                        </ul>
-                    </div>
-                    <button onclick="switchTab('order')" class="mt-6 w-full bg-ptBrown text-white font-bold text-xs py-3 rounded-2xl hover:bg-ptAccent hover:text-ptBrown transition">Chọn Gói Này</button>
-                </div>
-
-                <!-- Premium Plan -->
-                <div class="cute-card bg-white rounded-3xl p-6 border-2 border-ptYellow flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <span class="bg-ptYellow text-ptBrown font-bold text-[10px] px-3 py-1 rounded-full inline-block">GÓI TRỌN GÓI</span>
-                        <h3 class="font-bold text-base">Website Portfolio + Merch</h3>
-                        <div class="text-2xl font-black text-ptBrown">3.500.000 <span class="text-xs font-normal text-stone-500">VNĐ</span></div>
-                        <ul class="text-xs space-y-2.5 text-stone-600 border-t pt-4">
-                            <li class="flex items-center gap-2">✔ Web Portfolio SPA chuẩn GitHub Pages</li>
-                            <li class="flex items-center gap-2">✔ Thiết kế bộ Merch 3 món</li>
-                            <li class="flex items-center gap-2">✔ Cấu hình tên miền riêng & SEO căn bản</li>
-                        </ul>
-                    </div>
-                    <button onclick="switchTab('order')" class="mt-6 w-full bg-ptYellow text-ptBrown font-bold text-xs py-3 rounded-2xl hover:bg-ptOrange transition">Tư Vấn Thêm</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= PAGE 4: DỊCH VỤ THÀNH VIÊN (MEMBERS) ================= -->
-        <div id="page-members" class="page-content space-y-8 hidden animate-fade">
-            <div class="text-center py-4 space-y-2">
-                <span class="bg-ptOrange text-ptBrown text-[11px] font-bold px-3 py-1 rounded-full">MEMBERSHIP</span>
-                <h2 class="text-2xl sm:text-3xl font-black text-ptBrown">Gói Hội Viên Members 👑</h2>
-                <p class="text-xs text-stone-500">Ủng hộ duy trì Blog & Nhận tài nguyên thiết kế độc quyền hàng tháng</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <!-- Member Tier 1 -->
-                <div class="cute-card bg-white p-6 sm:p-8 rounded-3xl border-2 border-ptYellow space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-lg text-ptBrown">🌻 Búp Măng VIP</h3>
-                        <span class="bg-ptYellow px-3 py-1 rounded-full text-xs font-bold text-ptBrown">49.000đ / tháng</span>
-                    </div>
-                    <ul class="text-xs space-y-2.5 text-stone-600 border-t pt-4">
-                        <li>✦ Nhận Badge VIP & Role riêng trong Discord</li>
-                        <li>✦ Tải trước File Brush / Palette màu Pastel độc quyền</li>
-                        <li>✦ Giảm 5% cho tất cả đơn commission vẽ cá nhân</li>
-                    </ul>
-                    <button class="w-full bg-ptYellow text-ptBrown font-bold text-xs py-2.5 rounded-xl hover:bg-ptOrange transition">Tham Gia Ngay</button>
-                </div>
-
-                <!-- Member Tier 2 -->
-                <div class="cute-card bg-white p-6 sm:p-8 rounded-3xl border-2 border-ptOrange space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-lg text-ptBrown">👑 Mầm Xanh Supporter</h3>
-                        <span class="bg-ptOrange px-3 py-1 rounded-full text-xs font-bold text-ptBrown">149.000đ / tháng</span>
-                    </div>
-                    <ul class="text-xs space-y-2.5 text-stone-600 border-t pt-4">
-                        <li>✦ Tất cả đặc quyền của gói Búp Măng VIP</li>
-                        <li>✦ Tải trọn bộ kho Sticker PSD/PNG bản quyền thương mại</li>
-                        <li>✦ Ưu tiên duyệt đơn thiết kế nhanh trong 24h</li>
-                        <li>✦ Giảm 12% toàn bộ gói dịch vụ</li>
-                    </ul>
-                    <button class="w-full bg-ptOrange text-ptBrown font-bold text-xs py-2.5 rounded-xl hover:bg-ptAccent transition">Tham Gia Ngay</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= PAGE 5: ĐIỀU KHOẢN DỊCH VỤ (TOS) ================= -->
-        <div id="page-tos" class="page-content space-y-6 hidden animate-fade max-w-4xl mx-auto">
-            <div class="bg-stone-200 text-stone-700 px-6 py-2.5 rounded-full text-xs font-bold">
-                TERMS OF SERVICE (TOS) - ĐIỀU KHOẢN DỊCH VỤ CHI TIẾT
-            </div>
-
-            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 space-y-6 text-xs text-stone-600 leading-relaxed">
-                <section class="space-y-2">
-                    <h3 class="font-bold text-sm text-ptBrown flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-ptOrange"></span> 1. Quy Trình Đặt Hàng & Đặt Cọc
-                    </h3>
-                    <p>• Khách hàng vui lòng đặt cọc **50% giá trị dịch vụ** sau khi thống nhất brief ý tưởng.</p>
-                    <p>• Tiền đặt cọc không hoàn lại trong trường hợp khách hàng tự ý hủy dự án sau khi đã duyệt phác thảo (sketch).</p>
-                </section>
-
-                <section class="space-y-2 border-t pt-4">
-                    <h3 class="font-bold text-sm text-ptBrown flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-ptGreen"></span> 2. Quy Định Chỉnh Sửa & Bàn Giao
-                    </h3>
-                    <p>• Miễn phí 02 lần sửa phác thảo nét và 02 lần sửa màu sắc căn bản.</p>
-                    <p>• Yêu cầu thay đổi toàn bộ bố cục hoặc phác thảo lại từ đầu sẽ tính thêm 30% phí dịch vụ.</p>
-                    <p>• File hoàn chỉnh sẽ được bàn giao qua Google Drive sau khi thanh toán 50% số tiền còn lại.</p>
-                </section>
-
-                <section class="space-y-2 border-t pt-4">
-                    <h3 class="font-bold text-sm text-ptBrown flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-ptYellow"></span> 3. Bản Quyền & Quyền Sử Dụng
-                    </h3>
-                    <p>• **Sử dụng Cá Nhân:** Không dùng sản phẩm thiết kế cho mục đích thương mại, in ấn bán lại hoặc tạo NFT.</p>
-                    <p>• **Sử dụng Thương Mại (Commercial):** Phụ thu thêm +50% đến +100% chi phí tùy thuộc vào quy mô sử dụng.</p>
-                </section>
-            </div>
-        </div>
-
-        <!-- ================= PAGE 6: FORM ĐẶT HÀNG (ORDER FORM) ================= -->
-        <div id="page-order" class="page-content space-y-6 hidden animate-fade max-w-2xl mx-auto">
-            <div class="text-center py-2 space-y-1">
-                <h2 class="text-2xl font-black text-ptBrown">Form Đặt Thiết Kế ✨</h2>
-                <p class="text-xs text-stone-500">Điền thông tin bên dưới, mình sẽ phản hồi lại trong vòng 12h nhé!</p>
-            </div>
-
-            <form id="orderForm" onsubmit="handleFormSubmit(event)" class="bg-white p-6 sm:p-8 rounded-3xl border-2 border-ptOrange space-y-4 text-xs shadow-sm">
-                <div>
-                    <label class="block font-bold text-stone-700 mb-1">Tên của bạn / Tên Shop *</label>
-                    <input type="text" required placeholder="Nhập tên của bạn..." class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:border-ptAccent">
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block font-bold text-stone-700 mb-1">Số điện thoại / Zalo *</label>
-                        <input type="text" required placeholder="0987xxx..." class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:border-ptAccent">
-                    </div>
-                    <div>
-                        <label class="block font-bold text-stone-700 mb-1">Chọn gói dịch vụ *</label>
-                        <select class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:border-ptAccent font-medium">
-                            <option>Chibi Avatar (350.000đ)</option>
-                            <option>Combo Nhận Diện Shop (1.800.000đ)</option>
-                            <option>Thiết Kế Web / UI UX (3.500.000đ)</option>
-                            <option>Hạng mục khác (Thỏa thuận)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block font-bold text-stone-700 mb-1">Link Ảnh Minh Họa / Brief Ý Tưởng</label>
-                    <input type="url" placeholder="https://drive.google.com/..." class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:border-ptAccent">
-                </div>
-
-                <div>
-                    <label class="block font-bold text-stone-700 mb-1">Mô tả chi tiết yêu cầu *</label>
-                    <textarea rows="4" required placeholder="Mô tả ý tưởng, màu sắc yêu cầu, phong cách, thời gian cần hoàn thành..." class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:border-ptAccent"></textarea>
-                </div>
-
-                <div class="flex items-center gap-2 pt-2">
-                    <input type="checkbox" required id="tosCheck" class="rounded accent-ptBrown">
-                    <label for="tosCheck" class="text-stone-500">Tôi đã đọc và đồng ý với <button type="button" onclick="switchTab('tos')" class="underline text-ptBrown font-bold">Điều Khoản ToS</button></label>
-                </div>
-
-                <button type="submit" class="w-full bg-ptBrown text-white font-bold py-3.5 rounded-2xl hover:bg-ptAccent hover:text-ptBrown transition shadow-sm text-sm">
-                    Gửi Yêu Cầu Đặt Hàng ✨
-                </button>
-            </form>
-        </div>
-
     </main>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="bg-stone-100 text-stone-600 text-xs py-8 border-t border-stone-200 mt-12">
-        <div class="max-w-6xl mx-auto px-4 space-y-4 text-center">
-            <div class="flex flex-wrap justify-center gap-4 font-bold">
-                <button onclick="switchTab('gallery')" class="hover:text-ptBrown">Gallery</button>
-                <span>•</span>
-                <button onclick="switchTab('services')" class="hover:text-ptBrown">Dịch Vụ</button>
-                <span>•</span>
-                <button onclick="switchTab('pricing')" class="hover:text-ptBrown">Bảng Giá</button>
-                <span>•</span>
-                <button onclick="switchTab('members')" class="hover:text-ptBrown">Members</button>
-                <span>•</span>
-                <button onclick="switchTab('tos')" class="hover:text-ptBrown">Điều Khoản</button>
-            </div>
-            <p class="text-[10px] text-stone-400">© 2026 Pastel Design Studio • Optimized for GitHub Pages Deployment</p>
-        </div>
+    <!-- POPUP XEM ẢNH PHÓNG TO (LIGHTBOX) -->
+    <div id="imageModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4" onclick="closeModal()">
+        <img id="modalImg" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl">
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-100 border-t border-stone-200 py-6 text-center text-xs text-stone-500">
+        © 2026 Portfolio. Crafted with 🤎 & Pastel Colors.
     </footer>
 
-    <!-- ================= SCRIPT CHUYỂN TRANG TỰ ĐỘNG ================= -->
     <script>
-        function switchTab(tabId) {
-            // Ẩn tất cả các trang
-            document.querySelectorAll('.page-content').forEach(page => {
-                page.classList.add('hidden');
-            });
-            // Bỏ active nút nav
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Hiển thị trang chọn
-            const targetPage = document.getElementById('page-' + tabId);
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-            }
-
-            // Highlight nút nav active
-            const activeBtn = document.getElementById('btn-' + tabId);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
-            }
-
-            // Cuộn mượt về đầu trang
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        function openModal(src) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('imageModal').classList.remove('hidden');
         }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            alert('🎉 Yêu cầu của bạn đã được gửi thành công! Mình sẽ liên hệ lại qua Zalo/SĐT sớm nhất.');
-            document.getElementById('orderForm').reset();
+        function closeModal() {
+            document.getElementById('imageModal').classList.add('hidden');
         }
     </script>
 </body>
