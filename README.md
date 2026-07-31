@@ -1,4 +1,13 @@
 <img width="2000" height="2000" alt="01" src="https://github.com/user-attachments/assets/4240352d-6a8e-4192-914f-d97d6c29d298" />
 <img width="1490" height="2100" alt="BIATRUOC" src="https://github.com/user-attachments/assets/b0bea9c9-b860-4f57-a931-8a0cad515d05" />
-<img width="1490" height="2100" alt="BIATRUOC" src="https://github.com/user-attachments/assets/28916fab-06c4-4f81-8f3f-4834fd1c67fc" />
+<img width="1490" height="2100" alt="BIATRUOC" src="<img width="2000" height="2000" alt="08 (1)" src="https://github.com/user-attachments/assets/c9b693da-9c2d-487f-860a-4a09cc704ce0" /><img width="2000" height="1375" alt="BANNER 2 - CHAPTER 1" src="https://github.com/user-attachments/assets/72242121-ab72-4817-8f1e-ea244ffc58f7" />
+<img width="2000" height="2000" alt="07" src="https://github.com/user-attachments/assets/cdade6af-f808-4123-aae9-a947e40ec63c" />
+<img width="2000" height="2000" alt="08" src="https://github.com/user-attachments/assets/4c2fbd64-24b3-4cc1-acdf-a2b0bc495c0b" />
+<img width="1335" height="1335" alt="01" src="https://github.com/user-attachments/assets/cda4c08e-e848-4be6-b232-a11ca170fe90" />
+<img width="3000" height="1469" alt="BANNER-DONE" src="https://github.com/user-attachments/assets/0f34a202-f6c6-4154-9360-40de930b96a7" />
+<img width="2000" height="2000" alt="07" src="https://github.com/user-attachments/assets/3146567c-5647-431c-9cf4-9793bdeea637" />
+<img width="2000" height="2000" alt="07 (1)" src="https://github.com/user-attachments/assets/ad35d547-1e81-43ba-bff6-71a6a42643f8" />
+<img width="1500" height="1500" alt="MOCK-03" src="https://github.com/user-attachments/assets/6e6fb5b7-f062-49ae-88a3-37d5f06b31e6" />
+<img width="3500" height="1714" alt="BANNER_3_-DONE" src="https://github.com/user-attachments/assets/b4b4d97f-7fdc-41e1-a794-788b4d6e7b6a" />
+" />
 <img width="2200" height="2200" alt="TYPOGRAPHY" src="https://github.com/user-attachments/assets/e210f70c-4b31-432b-95a5-4aa63ebfa8a7" />
