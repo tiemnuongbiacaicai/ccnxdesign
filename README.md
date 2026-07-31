@@ -26,3 +26,4 @@
 <img width="1335" height="1335" alt="THU7" src="https://github.com/user-attachments/assets/3da86414-edb0-451a-bd36-e2c95d460835" />
 <img width="3000" height="1469" alt="BANNER-QUYỂN1" src="https://github.com/user-attachments/assets/346304db-0337-4547-9ed6-47d97d5b6c8d" />
 <img width="1490" height="2100" alt="BIACUT(1)" src="https://github.com/user-attachments/assets/b6cc95bb-9709-4f4b-be03-e53f7a2baf1c" />
+<img width="3000" height="1469" alt="BANNER" src="https://github.com/user-attachments/assets/931b4a7e-21ff-413a-b2d3-3494bbe625e2" />
