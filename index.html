@@ -1163,7 +1163,10 @@ Hội viên (VIP) không duy trì bằng cách đóng tiền ABC XYZ và có th�
     </div>
 
   <!-- ========================================================================== FORM ĐẶT "BÁNH" (MODAL BRIEF POPUP ĐỘNG) ========================================================================== --> <div id="orderModal" class="modal-overlay"> <div class="modal-body"> <div class="modal-content"> <span class="close-btn" onclick="closeOrderModal()">&times;</span> <!-- Tiêu đề chuẩn theo ảnh mẫu --> <h2 class="modal-title">Form Đặt "Bánh"</h2> <form id="orderForm" onsubmit="handleFormSubmit(event)"> 
-        <label>Tên / Tên Facebook (Kèm link fb cá nhân càng tốt nha)*</label>
+       <form id="orderForm" onsubmit="handleFormSubmit(event)"> 
+    <!-- Cấu hình FormSubmit -->
+    <input type="hidden" name="_subject" value="[BRIEF] Đơn Đặt Bánh Mới">
+    <input type="hidden" name="_template" value="table"> <label>Tên / Tên Facebook (Kèm link fb cá nhân càng tốt nha)*</label>
         <input type="text" name="name" class="form-control" placeholder="Nhập thông tin" required>
     </div>
 
