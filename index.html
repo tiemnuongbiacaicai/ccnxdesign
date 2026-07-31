@@ -278,37 +278,54 @@
         }
 
         /* MASONRY GALLERY */
-        .project-masonry {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-            align-items: start;
-        }
+        /* 1. KHUNG CHỦ CHỨA TẤT CẢ SẢN PHẨM */
+.project-masonry {
+    display: grid;
+    /* Tự động chia cột: Tối thiểu 250px/cột, tự co giãn theo màn hình */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+    gap: 20px; /* GIÃN KHỎANG CÁCH BẰNG NHAU GIỮA CÁC KHUNG CHUẨN ĐẸP */
+    align-items: start; /* Giúp các khung không bị kéo dãn chiều cao theo nhau */
+}
 
-        .project-card {
-            background: #FFF;
-            border: 1.5px solid var(--primary-brown);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            transition: transform 0.2s;
-        }
+/* 2. KHUNG THẺ TỪNG SẢN PHẨM */
+.project-card {
+    background: #FFFFFF;
+    border: 1.5px solid var(--primary-brown);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(92, 61, 46, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
 
-        .project-card:hover {
-            transform: translateY(-4px);
-        }
+/* Hiệu ứng nhô nhẹ khi di chuột vào sản phẩm */
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(92, 61, 46, 0.12);
+}
 
-        .project-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+/* 3. XỬ LÝ ẢNH ĐA KÍCH THƯỚC (16:9, 4:6, 1:6...) */
+.project-card img {
+    width: 100%;
+    height: auto; /* Tự động theo tỉ lệ thực tế của ảnh, KHÔNG BỊ MÉO/CO GIÃN */
+    display: block;
+    border-bottom: 1.5px solid var(--border-soft);
+    object-fit: cover;
+}
 
-        .project-info {
-            padding: 10px 14px;
-            background: #FFF8EE;
-            border-top: 1px dashed var(--border-soft);
-        }
+/* 4. PHẦN THÔNG TIN BÊN DƯỚI ẢNH */
+.project-info {
+    padding: 12px 14px;
+    background: #FFFDF8;
+}
+
+.project-info strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--deep-brown);
+    margin-bottom: 3px;
+}
 
         /* ==========================================================================
            5. MODAL BRIEF FORM CHUẨN ĐẦY ĐỦ CÁC MỤC DỘNG
@@ -429,7 +446,7 @@
             <!-- Mẻ bánh vừa ra lò (Dự án mới) -->
             <div class="card-tag-wrapper">
                 <div class="card-tag-header gingham-green">
-                    <span>NÓNG HỔI VỪA THỔI VỪA ĂN</span>
+                    <span>NEW PJ</span>
                     <span class="badge-tag">Mới Ra Lò</span>
                 </div>
                 <div class="card-tag-body">
@@ -469,7 +486,7 @@
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
                         <a href="https://www.facebook.com/tiemnuongbiaCaiCai" target="_blank" style="background: #FFF; border: 1.5px solid var(--primary-brown); padding: 10px; border-radius: 14px; text-align: center; text-decoration: none; font-weight: 700; font-size: 0.88rem;">Blog Facebook</a>
                         <a href="https://www.facebook.com/groups/1051695248870152" target="_blank" style="background: #FFF; border: 1.5px solid var(--primary-brown); padding: 10px; border-radius: 14px; text-align: center; text-decoration: none; font-weight: 700; font-size: 0.88rem;">Group Facebook</a>
-                        <a href="cainhoay@gmail.com" target="_blank" style="background: #FFF; border: 1.5px solid var(--primary-brown); padding: 10px; border-radius: 14px; text-align: center; text-decoration: none; font-weight: 700; font-size: 0.88rem;">Gmail</a>
+                    
                     </div>
                 </div>
             </div>
