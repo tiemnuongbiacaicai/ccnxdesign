@@ -408,9 +408,22 @@
                 <div class="card-tag-body">
                     <div style="display: flex; gap: 22px; align-items: center; flex-wrap: wrap;">
                         <div style="width: 105px; height: 105px; border-radius: 50%; background: var(--primary-yellow); border: 2px solid var(--primary-brown); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--primary-brown); flex-shrink: 0; text-align: center; font-size: 0.85rem;">
-                            [ AVATAR / LOGO ]
-                        </div>
-                        <div style="flex: 1;">
+                       <!-- KHUNG AVATAR PROFILE -->
+<div class="avatar-upload-wrapper">
+    <div class="avatar-frame">
+        <!-- Thay link ảnh mặc định của bạn vào src bên dưới -->
+        <img id="avatarPreview" src="https://via.placeholder.com/130" alt="Avatar Tiệm Bánh">
+        
+        <!-- Badge nhãn dán trang trí bên dưới avatar -->
+        <span class="avatar-badge">Bếp Trưởng</span>
+    </div>
+
+    <!-- Nút tải ảnh lên (Thao tác nhanh) -->
+    <div class="avatar-action">
+        <label for="avatarInput" class="btn-change-avt">Đổi ảnh bánh mới</label>
+        <input type="file" id="avatarInput" accept="image/*" onchange="updateAvatarPreview(event)">
+    </div>
+</div>
                             <h1 style="font-size: 1.5rem; color: var(--primary-brown);">CCNX / Cải Nhỏ</h1>
                             <p style="color: var(--text-muted); font-weight: 700; font-size: 0.9rem; margin-top: 4px;">
                                 Tiệm chuyên "nướng" các sản phẩm design độc đáo, không bán bánh ăn được!
@@ -545,11 +558,11 @@
                                 <tbody>
                                     <tr>
                                         <td><strong> Homepage</strong></td>
-                                        <td>Tư vấn, thảo luận, lên bố cục, setup (đơn giản vì không chuyên code), chọn theme, custom, ảnh full cho homepage, có kèm banner mục nhỏ</td>
+                                        <td>Tư vấn, thảo luận, lên bố cục, setup theme, custom, ảnh full cho homepage, có kèm banner mục nhỏ</td>
                                         <td>Từ 600k</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Full WordPress</strong></td>
+                                        <td><strong>Full</strong></td>
                                         <td>Homepage, trang con, bài viết, v…v…(Tặng set avatar theo concept, có phiếu ưu tiên nhận slot cho khách chưa phải members).</td>
                                         <td>Từ 800k</td>
                                     </tr>
@@ -582,16 +595,16 @@
                         <table class="bakery-table">
                             <thead>
                                 <tr>
-                                    <th>”Bánh” độc quyền của Cải Cải</th>
+                                    <th>”Bánh” độc quyền</th>
                                     <th>Lý lịch trích ngang</th>
                                     <th>Phí Cố Định / Phụ Thu</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Set Bìa 2D (Không Mockup)</strong></td>
+                                    <td><strong>Set Bìa 2D</strong></td>
                                     <td>Chỉ áp dụng Rank R - Được chọn toàn bộ style tùy thích.</td>
-                                    <td>200k (Up rank phụ thu <strong> + 70k</strong>)</td>
+                                    <td><strong>200k (Up rank phụ thu <strong> + 70k</strong>)</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Bìa Take Away</strong></td>
@@ -625,9 +638,7 @@
                     <span>BẢNG GIÁ THEO STYLE & RANK</span>
                 </div>
                 <div class="card-tag-body">
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">
-                        Rank chia theo độ phức tạp của bản design: R<SR<<SSR. Giá chính là với bìa truyện lẻ, với avatar + cover thì - 50k nha
-                    </p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">Giá chính là với bìa truyện lẻ, với avatar + cover thì - 50k nha</p>
 
                     <div class="table-responsive">
                         <table class="bakery-table">
@@ -637,7 +648,7 @@
                                     <th>Mô Tả</th>
                                     <th>R</th>
                                     <th>SR</th>
-                                    <th>SSR(Members ONLY)</th>
+                                    <th>SSR</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -683,7 +694,7 @@
                     <!-- Góc giải ngố -->
                     <button class="accordion-btn" onclick="toggleAccordion('style-notes')">
                         <span>Góc giải ngố dành cho người cẩn thận</span>
-                        <span>[Thu gọn / Mở]</span>
+                        <span>[+]</span>
                     </button>
                     <div id="style-notes" class="accordion-content">
                         <p>Không nhận PJ SSR cho người chưa từng làm việc cùng</p>
@@ -728,7 +739,7 @@
                                 <tr>
                                     <td><strong>Polaroid Card</strong></td>
                                     <td>1 card gồm: Mặt trước + Mặt sau</td>
-                                    <td>300k- Nếu làm Card đôi: <strong>+70k</strong></td>
+                                    <td>300k - Nếu làm Card đôi: <strong>+70k</strong></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Postcard</strong></td>
@@ -777,12 +788,12 @@
                     <!-- Notes Thu Gọn Merch -->
                     <button class="accordion-btn" onclick="toggleAccordion('merch-notes')">
                         <span>Các lưu ý liên quan</span>
-                        <span>[Thu gọn / Mở]</span>
+                        <span>[+]</span>
                     </button>
                     <div id="merch-notes" class="accordion-content">
-                        <p>• Các đơn Merch kỷ niệm hoặc ấn phẩm thương mại hãy tích chọn đúng vào mục tương ứng trên Form nha.</p>
-<p>•Có nhận thêm các loại merch khác qua ib blog</p>
-<p>•File gửi in sẽ là file CMYK, đuôi .png + .pdf, nếu cần file psd ĐỂ IN + 70k (Có gộp layer) CÒN ĐỂ CHỈNH SỬA LẠI (Dù là zoom to nhỏ chi tiết) + 170k -> x 0.5 giá base des phí phụ thu và không gộp layer</p>
+                        <p>- Các đơn Merch kỷ niệm hoặc ấn phẩm thương mại hãy tích chọn đúng vào mục tương ứng trên Form nha.</p>
+<p>- Có nhận thêm các loại merch khác qua ib blog</p>
+<p>- File gửi in sẽ là file CMYK, đuôi .png + .pdf, nếu cần file psd ĐỂ IN + 70k (Có gộp layer) CÒN ĐỂ CHỈNH SỬA LẠI (Dù là zoom to nhỏ chi tiết) + 170k -> x 0.5 giá base des phí phụ thu và không gộp layer</p>
 
                     </div>
 
@@ -793,14 +804,14 @@
                         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Gồm 3 Rank chính:</p>
                         <ul style="list-style-type: none; font-size: 0.88rem;">
                             <li style="margin-bottom: 6px;">
-                                <strong>• R:</strong> Mockup cho từng merch, không có mock tổng.
+                                <strong>R:</strong> Mockup cho từng merch, không có mock tổng.
                             </li>
                             <li style="margin-bottom: 6px;">
-                                <strong>•SR:</strong> Mockup cho từng merch + Mockup tổng cho từng merch (loại ngang - banner).
+                                <strong>SR:</strong> Mockup cho từng merch + Mockup tổng cho từng merch (loại ngang - banner).
                                 <br><span style="color: #D32F2F; font-size: 0.82rem;">* Phụ thu: Nếu đặt dạng ảnh tuyên truyền dài sẽ phụ thu +70k.</span>
                             </li>
                             <li style="margin-bottom: 6px;">
-                                <strong>• SSR:</strong> Mockup cho từng merch + Mockup tuyên truyền dài đầy đủ + Mockup rút gọn / Blind mock.
+                                <strong>SSR:</strong> Mockup cho từng merch + Mockup tuyên truyền dài đầy đủ + Mockup rút gọn / Blind mock.
                             </li>
                         </ul>
                     </div>
@@ -856,6 +867,48 @@
              TRANG 4: CÁCH MUA BÁNH (TOS + BAO BÌ BÁNH)
              ========================================================================== -->
         <section id="tos" class="page-section">
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-green">
+                    <span>TERMS OF SERVICE (TOS)</span>
+                </div>
+                <div class="card-tag-body">
+                    <h2>Cách Mua Bánh</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                        Quý “thực khách” vui lòng đọc thật kỹ bài Tos nha, đã điền brief = chấp nhận 100% Tos nha. P/s: Bài này là bài Tos rút gọn, mọi người nên đọc full docx gửi kèm để có thể nắm rõ nhất có thể nha
+                    </p>
+
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="background: #FFF; padding: 14px; border-radius: 12px; border: 1.5px solid var(--primary-brown);">
+                            <h4>1. Bên lề</h4>
+                            <p style="font-size: 0.88rem; margin-top: 4px;">Xin hãy ghi credit dù bất kỳ trường hợp nào! </p> <p style="font-size: 0.88rem; margin-top: 4px;">Hãy chịu trách nhiệm với brief của bản thân và biết rõ bản thân muốn gì, đảm bảo ĐÃ ĐỌC TOÀN BỘ TOS VÀ XEM SAMPLE, SHEET STY/RANK.</p> </p> <p style="font-size: 0.88rem; margin-top: 4px;"> Với những PJ dài hạn (Event, merch / goods, bìa dài tập) CẦN THẢO LUẬN CÁCH THỨC TRAO ĐỔI VÀ LÀM VIỆC, cùng những rủi ro hiện có và lưu ý của 2 bên trước khi chính thức lên kế hoạch, cọc, xếp lịch và gửi demo v…v…v</p> 
+
+                        </div>
+
+                        <div style="background: #FFF; padding: 14px; border-radius: 12px; border: 1.5px solid var(--primary-brown);">
+                            <h4>2. Brief</h4>
+                            <p style="font-size: 0.88rem; margin-top: 4px;">Yêu cầu rõ ràng, nên lướt nhiều sample trên blog fb để hình dung được bản thân muốn gì và Cải có thể làm gì.</p> 
+
+<p style="font-size: 0.88rem; margin-top: 4px;">Cải nhận rất nhiều PJ, đa số không update lên blog, nên miễn là yêu cầu của bae đủ rõ ràng, Cải sẽ cố hết sức để hoàn thành.</p> 
+
+<p style="font-size: 0.88rem; margin-top: 4px;">KHÔNG nhận cover idol, ảnh người thật v…v…v, nếu là PJ về người thật nhưng dùng comm chibi hoặc des dạng object 100% thì vẫn nhận nhé.</p> 
+
+<p style="font-size: 0.88rem; margin-top: 4px;">KHÔNG ĐỔI BRIEF SÁT NGÀY GỬI DEMO (Nếu đã chốt ngày gửi rồi) - Có thể bổ sung NHƯNG phải báo trước 5 ngày trở lên.</p> 
+                        </div>
+
+                        <div style="background: #FFF; padding: 14px; border-radius: 12px; border: 1.5px solid var(--primary-brown);">
+                            <h4>3. Deadline</h4>
+                            <p style="font-size: 0.88rem; margin-top: 4px;">Deadline cố định cho bìa truyện bình thường dao động từ 3 tới 4 tuần, set ava+cv là 2 tới 3 tuần.</p>
+
+  <p style="font-size: 0.88rem; margin-top: 4px;">Deadline bìa thường được tính từ ngày gửi brief (Nếu ngày gửi brief rơi vào tầm cuối hoặc đầu tháng), nếu brief gửi vào tầm giữa tháng (13 - 23 tây mỗi tháng) demo có thể gửi vào tầm hơn 1 tháng nhé! (Chuyện này còn tùy theo lịch deadline, hoặc các tháng đặc biệt (Tháng 1 / 2 / 7 / 12)</p>
+
+  <p style="font-size: 0.88rem; margin-top: 4px;">Deadline cho wordpress nhận qua bài gom book trên blog là 2 tháng; Deadline cho set 2D gom book là 2 tuần; Các PJ khác sẽ tùy theo lịch deadline cá nhân.</p>
+
+<p style="font-size: 0.88rem; margin-top: 4px;">CÓ NHẬN DEADLINE GẤP và có phụ thu theo từng loại deadline </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+   <section id="tos" class="page-section">
             <div class="card-tag-wrapper">
                 <div class="card-tag-header gingham-green">
                     <span>TERMS OF SERVICE (TOS)</span>
