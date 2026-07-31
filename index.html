@@ -1165,59 +1165,46 @@ Hội viên (VIP) không duy trì bằng cách đóng tiền ABC XYZ và có th�
     <!-- ==========================================================================
          FORM ĐẶT "BÁNH" (MODAL BRIEF POPUP DỘNG)
          ========================================================================== -->
-    <div id="orderModal" class="modal-overlay">
-        <div class="modal-body">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-                <h2 style="color: var(--primary-brown);">Form Đặt "Bánh" (Gửi Brief)</h2>
-                <button onclick="closeOrderModal()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; font-weight: 800;">✕</button>
-            </div>
+    <form id="orderForm" onsubmit="handleFormSubmit(event)">
+    <!-- Tiêu đề email nhận (Có thể chỉnh lại cho đẹp) -->
+    <input type="hidden" name="_subject" value="✨ [BRIEF MỚI] Đơn đặt hàng từ Tiệm Bánh!">
 
-            <form id="bakeryBriefForm" onsubmit="handleFormSubmit(event)">
-                <!-- CÁC THÔNG TIN CƠ BẢN -->
-                <div class="form-group">
-                    <label>Tên*</label>
-                    <input type="text" class="form-control" required placeholder="Nhập tên của bạn...">
-                </div>
+    <!-- 1. BẮT BUỘC name="name" ĐỂ FORMSUBMIT HIỆN TÊN KHÁCH Ở TIÊU ĐỀ MAIL -->
+    <div class="form-group">
+        <label>Họ và Tên / Nickname khách hàng *</label>
+        <input type="text" name="name" class="form-control" placeholder="Nhập tên của bạn" required>
+    </div>
 
-                <div class="form-group">
-                    <label>Link Facebook / Email Liên Lạc *</label>
-                    <input type="text" class="form-control" required placeholder="Link FB hoặc Email liên hệ...">
-                </div>
+    <!-- 2. BẮT BUỘC name="email" ĐỂ BẤM "REPLY/TRẢ LỜI" LÀ GỬI THẲNG CHO KHÁCH -->
+    <div class="form-group">
+        <label>Email liên hệ *</label>
+        <input type="email" name="email" class="form-control" placeholder="example@gmail.com" required>
+    </div>
 
-                <div class="form-group">
-                    <label>Tên PJ (Text Chính) *</label>
-                    <input type="text" class="form-control" required placeholder="Tên tác phẩm / tiêu đề...">
-                </div>
+    <!-- Thông tin liên hệ phụ (Tuỳ chọn) -->
+    <div class="form-group">
+        <label>Link Facebook / Zalo / SĐT</label>
+        <input type="text" name="Liên hệ khác" class="form-control" placeholder="Link FB hoặc SĐT khách">
+    </div>
 
-                <div class="form-group">
-                    <label>Chọn loại “bánh” để “nướng” nào~*</label>
-                    <select id="categorySelect" class="form-control" onchange="updateFormDynamicFields()" required>
-                        <option value="">-- Chọn hạng mục --</option>
-                        <option value="bookcover">Bookcover (Bìa Sách / Truyện)</option>
-                        <option value="wordpress">Decor WordPress</option>
-                        <option value="watermark">Watermark (Thủy Ấn)</option>
-                        <option value="merch">Merch / Goods</option>
-                    </select>
-                </div>
+    <!-- Chọn Hạng Mục Brief (Đã thêm Avatar & Cover) -->
+    <div class="form-group">
+        <label>Chọn Hạng Mục Brief *</label>
+        <select id="categorySelect" name="Hạng Mục Chính" class="form-control" onchange="updateFormDynamicFields()" required>
+            <option value="">-- Chọn Hạng Mục --</option>
+            <option value="bookcover">Bìa Sách / Truyện</option>
+            <option value="wordpress">Thiết Kế WordPress</option>
+            <option value="avatar_cover">Avatar & Banner / Cover</option> <!-- MỤC MỚI THÊM -->
+            <option value="watermark">Watermark</option>
+            <option value="merch">Merch / Phụ Kiện</option>
+        </select>
+    </div>
 
-                <!-- KHU VỰC CHỨA CÁC TRƯỜNG DỘNG THAY ĐỔI THEO HẠNG MỤC -->
-                <div id="dynamicFieldsContainer"></div>
+    <!-- Container tự động nhảy trường dữ liệu động -->
+    <div id="dynamicFieldsContainer"></div>
 
-                <div class="form-group" style="margin-top: 14px;">
-                    <label>Brief Chính (Nội dung chi tiết yêu cầu) *</label>
-                    <textarea class="form-control" rows="3" required placeholder="Mô tả ý tưởng, màu sắc, phong cách..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Link Ref (Nên gửi Link Google Drive chứa Ref) *</label>
-                    <input type="url" class="form-control" placeholder="https://drive.google.com/..." required>
-                </div>
-
-                <div style="margin-top: 18px; display: flex; gap: 10px; justify-content: flex-end;">
-                    <button type="button" class="btn-bake" style="background: var(--text-muted);" onclick="closeOrderModal()">Hủy</button>
-                    <button type="submit" class="btn-bake">Gửi Brief Ngay</button>
-                </div>
-            </form>
+    <button type="submit" class="btn-submit">Gửi Brief Đặt Bánh</button>
+</form>
         </div>
     </div>
 
@@ -1270,7 +1257,7 @@ function closeOrderModal() {
     document.getElementById('orderModal').style.display = 'none';
 }
 
-// 2. RENDER TRƯỜNG ĐỘNG (ĐÃ BỔ SUNG THUỘC TÍNH 'NAME' ĐỂ THU THẬP DỮ LIỆU)
+// 2. RENDER TRƯỜNG ĐỘNG THEO HẠNG MỤC
 function updateFormDynamicFields() {
     const catSelect = document.getElementById('categorySelect');
     if (!catSelect) return;
@@ -1283,6 +1270,7 @@ function updateFormDynamicFields() {
 
     let html = '<div class="dynamic-field-group">';
 
+    // --- 2.1 HẠNG MỤC: BÌA SÁCH / TRUYỆN ---
     if (cat === 'bookcover') {
         html += `
             <div class="form-group">
@@ -1333,7 +1321,9 @@ function updateFormDynamicFields() {
                 </div>
             </div>
         `;
-    } else if (cat === 'wordpress') {
+    } 
+    // --- 2.2 HẠNG MỤC: WORDPRESS ---
+    else if (cat === 'wordpress') {
         html += `
             <div class="form-group">
                 <label>Chọn Đặt Decor</label>
@@ -1366,7 +1356,57 @@ function updateFormDynamicFields() {
                 </div>
             </div>
         `;
-    } else if (cat === 'watermark') {
+    } 
+    // --- 2.3 HẠNG MỤC MỚI: AVATAR & COVER ---
+    else if (cat === 'avatar_cover') {
+        html += `
+            <div class="form-group">
+                <label>Chọn Gói Thiết Kế</label>
+                <select name="Gói Avatar/Cover" class="form-control">
+                    <option value="Combo Avatar + Cover">Combo Avatar + Cover</option>
+                    <option value="Chỉ Đặt Avatar">Chỉ Đặt Avatar</option>
+                    <option value="Chỉ Đặt Cover / Banner">Chỉ Đặt Cover / Banner</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nền Tảng Sử Dụng</label>
+                <select name="Nền Tảng Sử Dụng" class="form-control">
+                    <option value="Facebook (Personal/Page/Group)">Facebook (Cá nhân / Fanpage / Group)</option>
+                    <option value="Wattpad">Wattpad</option>
+                    <option value="Website / Blog">Website / Blog Personal</option>
+                    <option value="YouTube / TikTok">YouTube / TikTok</option>
+                    <option value="Khác">Nền tảng khác</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Style & Rank</label>
+                <div style="display: flex; gap: 10px;">
+                    <select name="Style Avatar/Cover" class="form-control">
+                        <option value="Anh Đào">Anh Đào</option>
+                        <option value="Nguyệt Quý">Nguyệt Quý</option>
+                        <option value="Bồ Công Anh">Bồ Công Anh</option>
+                        <option value="Anh Túc">Anh Túc</option>
+                        <option value="Thược Dược Đen">Thược Dược Đen</option>
+                        <option value="Style Khác">Style Khác</option>
+                    </select>
+                    <select name="Rank Avatar/Cover" class="form-control">
+                        <option value="Rank R">Rank R</option>
+                        <option value="Rank SR">Rank SR</option>
+                        <option value="Rank SSR">Rank SSR</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Budget & Deadline Dự Kiến</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" name="Budget Avatar Cover" class="form-control" placeholder="Budget (VNĐ)">
+                    <input type="date" name="Deadline Avatar Cover" class="form-control">
+                </div>
+            </div>
+        `;
+    } 
+    // --- 2.4 HẠNG MỤC: WATERMARK ---
+    else if (cat === 'watermark') {
         html += `
             <div class="form-group">
                 <label>Chọn Watermark Theo Set Rank</label>
@@ -1377,7 +1417,9 @@ function updateFormDynamicFields() {
                 </select>
             </div>
         `;
-    } else if (cat === 'merch') {
+    } 
+    // --- 2.5 HẠNG MỤC: MERCH ---
+    else if (cat === 'merch') {
         html += `
             <div class="form-group">
                 <label>Số Lượng & Chọn Các Loại Merch Cụ Thể:</label>
@@ -1419,14 +1461,13 @@ function updateFormDynamicFields() {
     container.innerHTML = html;
 }
 
-// 3. HÀM TỰ ĐỘNG GỬI BRIEF VỀ EMAIL
+// 3. HÀM XỬ LÝ GỬI FORM VỀ EMAIL
 async function handleFormSubmit(e) {
     e.preventDefault();
 
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
 
-    // Khóa nút gửi để tránh khách nhấn nhiều lần
     if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerText = 'Đang gửi Brief...';
