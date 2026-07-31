@@ -1162,33 +1162,18 @@ Hội viên (VIP) không duy trì bằng cách đóng tiền ABC XYZ và có th�
 
     </div>
 
-    <!-- ==========================================================================
-         FORM ĐẶT "BÁNH" (MODAL BRIEF POPUP DỘNG)
-         ========================================================================== -->
-    <div id="orderModal" class="modal-overlay">
-        <div class="modal-body">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-                <h2 style="color: var(--primary-brown);">Form Đặt "Bánh" (Gửi Brief)</h2>
-                <button onclick="closeOrderModal()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; font-weight: 800;">✕</button>
-            </div>
-    <div class="modal-content"><span class="close-btn" onclick="closeOrderModal()">&times;</span>
-    <form id="orderForm" onsubmit="handleFormSubmit(event)"> 
-    <!-- Tiêu đề email nhận (Có thể chỉnh lại cho đẹp) -->
-    <input type="hidden" name="_subject" value="[BRIEF] ">
-
-    <!-- 1. BẮT BUỘC name="name" ĐỂ FORMSUBMIT HIỆN TÊN KHÁCH Ở TIÊU ĐỀ MAIL -->
-    <div class="form-group">
+  <!-- ========================================================================== FORM ĐẶT "BÁNH" (MODAL BRIEF POPUP ĐỘNG) ========================================================================== --> <div id="orderModal" class="modal-overlay"> <div class="modal-body"> <div class="modal-content"> <span class="close-btn" onclick="closeOrderModal()">&times;</span> <!-- Tiêu đề chuẩn theo ảnh mẫu --> <h2 class="modal-title">Form Đặt "Bánh" (Gửi Brief)</h2> <form id="orderForm" onsubmit="handleFormSubmit(event)"> 
         <label>Tên*</label>
         <input type="text" name="name" class="form-control" placeholder="Nhập tên của bạn" required>
     </div>
 
-    <!-- 2. BẮT BUỘC name="email" ĐỂ BẤM "REPLY/TRẢ LỜI" LÀ GỬI THẲNG CHO KHÁCH -->
-    <div class="form-group">
+       <div class="form-group">
         <label>Email liên hệ *</label>
         <input type="email" name="email" class="form-control" placeholder="example@gmail.com" required>
     </div>
+<!-- 3. TÊN PJ (TEXT CHÍNH) - --> <div class="form-group"> <label>Tên PJ (Text Chính) *</label> <input type="text" name="Tên PJ" class="form-control" placeholder="Nhập text gì đê" required> </div> 
 
-        <!-- Chọn Hạng Mục Brief (Đã thêm Avatar & Cover) -->
+        <!-- Chọn Hạng Mục Brief -->
     <div class="form-group">
         <label>Chọn loại “bánh” để “nướng” nào~*</label>
         <select id="categorySelect" name="Hạng Mục Chính" class="form-control" onchange="updateFormDynamicFields()" required>
@@ -1203,7 +1188,7 @@ Hội viên (VIP) không duy trì bằng cách đóng tiền ABC XYZ và có th�
 
     <!-- Container tự động nhảy trường dữ liệu động -->
     <div id="dynamicFieldsContainer"></div>
-
+<!-- 5. BRIEF CHÍNH - (BỔ SUNG MỚI THEO ẢNH) --> <div class="form-group"> <label>Brief Chính (Nội dung chi tiết yêu cầu) *</label> <textarea name="Brief Chính" class="form-control" placeholder="Yêu cầu về bản design" required></textarea> </div> <!-- 6. LINK REF - --> <div class="form-group"> <label>Link Ref (Nên gửi Link Google Drive chứa Ref) *</label> <input type="text" name="Link Ref" class="form-control" placeholder="https://docs.google.com/document/d/..." required> </div> 
     <button type="submit" class="btn-submit">Gửi Brief Đặt Bánh</button>
  </div>
             </form>
@@ -1505,4 +1490,6 @@ async function handleFormSubmit(e) {
        </script>
 </body>
 </html>
+
+
 
