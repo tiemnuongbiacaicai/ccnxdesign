@@ -278,40 +278,31 @@
         }
 
         /* MASONRY GALLERY */
-        /* 1. KHUNG CHỦ CHỨA TẤT CẢ SẢN PHẨM */
+       /* 1. KHUNG CHỦ CHỨA TẤT CẢ SẢN PHẨM (Dùng Column Layout) */
 .project-masonry {
-    display: grid;
-    /* Tự động chia cột: Tối thiểu 250px/cột, tự co giãn theo màn hình */
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
-    gap: 20px; /* GIÃN KHỎANG CÁCH BẰNG NHAU GIỮA CÁC KHUNG CHUẨN ĐẸP */
-    align-items: start; /* Giúp các khung không bị kéo dãn chiều cao theo nhau */
+    column-width: 240px; /* Độ rộng tối thiểu của 1 cột, trình duyệt tự chia số cột theo màn hình */
+    column-gap: 12px;     /* Giảm khoảng cách ngang cho khít và đẹp mắt hơn (có thể chỉnh 12px - 16px) */
 }
 
 /* 2. KHUNG THẺ TỪNG SẢN PHẨM */
 .project-card {
+    break-inside: avoid;  /* BẮT BUỘC: Ngăn thẻ bị xé đôi khi nằm ở cuối/đầu cột */
+    margin-bottom: 12px;  /* Khoảng cách dọc giữa các thẻ trong cùng 1 cột */
+    
     background: #FFFFFF;
     border: 1.5px solid var(--primary-brown);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(92, 61, 46, 0.05);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    display: flex;
-    flex-direction: column;
 }
 
-/* Hiệu ứng nhô nhẹ khi di chuột vào sản phẩm */
-.project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(92, 61, 46, 0.12);
-}
-
-/* 3. XỬ LÝ ẢNH ĐA KÍCH THƯỚC (16:9, 4:6, 1:6...) */
+/* 3. QUY ĐỊNH HIỂN THỊ HÌNH ẢNH MỌI TỶ LỆ (16:9, 4:6, 1:6...) */
 .project-card img {
-    width: 100%;
-    height: auto; /* Tự động theo tỉ lệ thực tế của ảnh, KHÔNG BỊ MÉO/CO GIÃN */
-    display: block;
-    border-bottom: 1.5px solid var(--border-soft);
-    object-fit: cover;
+    width: 100%;          /* Chiều rộng luôn tràn 100% thẻ chứa */
+    height: auto;         /* Chiều cao tự động biến đổi theo tỷ lệ gốc của ảnh */
+    display: block;       /* Xóa khoảng trống thừa dưới chân ảnh */
+    object-fit: cover;    /* Giữ nguyên tỷ lệ ảnh, không bị méo */
 }
 
 /* 4. PHẦN THÔNG TIN BÊN DƯỚI ẢNH */
