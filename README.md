@@ -11,3 +11,6 @@
 <img width="3500" height="1714" alt="BANNER_3_-DONE" src="https://github.com/user-attachments/assets/b4b4d97f-7fdc-41e1-a794-788b4d6e7b6a" />
 " />
 <img width="2200" height="2200" alt="TYPOGRAPHY" src="https://github.com/user-attachments/assets/e210f70c-4b31-432b-95a5-4aa63ebfa8a7" />
+<img width="1490" height="2100" alt="000" src="https://github.com/user-attachments/assets/d36f979b-d999-4667-bd38-3f7c6ad87bb9" />
+<img width="1500" height="1500" alt="BIAWEB-RAW" src="https://github.com/user-attachments/assets/6e8968c1-c621-4344-9ed5-3f934e4afcb1" />
+<img width="1490" height="2100" alt="BIAWATT" src="https://github.com/user-attachments/assets/086fa5ff-2a7b-46b3-b8ae-3cea7476420f" />
