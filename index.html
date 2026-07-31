@@ -3,129 +3,1270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCNX Design ✨</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ptGreen: '#C8E6C9',
-                        ptOrange: '#FFE0B2',
-                        ptYellow: '#FFF9C4',
-                        ptBrown: '#5D4037',
-                        ptCream: '#FFFDF9',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Tiệm "Nướng" Bánh - Studio Thiết Kế & Portfolio</title>
+    <!-- Google Fonts dịu ngọt, bo tròn xinh xắn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        body { background-color: #FFFDF9; color: #5D4037; font-family: 'Segoe UI', system-ui, sans-serif; }
-        .cute-card { border: 2px solid #F5EBE6; transition: all 0.3s ease; }
-        .cute-card:hover { transform: translateY(-4px); border-color: #FFE0B2; box-shadow: 0 10px 20px rgba(93,64,55,0.06); }
+        /* ==========================================================================
+           1. CẤU HÌNH BẢNG MÀU PASTEL & CÁC PATTERN DECOR KIỂU MẪU BAO BÌ
+           ========================================================================== */
+        :root {
+            --bg-cream: #FFFDF7;         /* Kem bơ nhạt dịu mắt */
+            --bg-card: #FFFFFF;          /* Trắng kem tinh khôi */
+            --primary-brown: #5C3D2E;    /* Nâu sô-cô-la ấm áp cho chữ & viền */
+            --primary-orange: #FF8A65;   /* Cam pastel ngọt ngào */
+            --primary-yellow: #FFE082;   /* Vàng bơ mềm mại */
+            --primary-green: #A5D6A7;    /* Xanh matcha pastel */
+            --primary-pink: #F8BBD0;     /* Hồng kẹo dẻo pastel */
+            --border-soft: #E8D0C0;     /* Viền mỏng dịu nhẹ */
+            --border-dashed: #D7CCC8;   /* Viền nét đứt nếp gập */
+            --text-main: #4A3525;        /* Chữ nâu đậm dịu mắt */
+            --text-muted: #8D6E63;       /* Chữ chú thích */
+            --radius-main: 22px;         /* Bo góc mềm mại */
+            --shadow-soft: 0 8px 20px rgba(92, 61, 46, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-main);
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        h1, h2, h3, h4, .font-title {
+            font-family: 'Comfortaa', cursive;
+        }
+
+        /* Pattern Kẻ Ca-rô (Gingham Patterns) lấy cảm hứng từ ảnh mẫu */
+        .gingham-yellow {
+            background-color: #FFF8E1;
+            background-image: linear-gradient(90deg, rgba(255,224,130,0.35) 50%, transparent 50%),
+                              linear-gradient(rgba(255,224,130,0.35) 50%, transparent 50%);
+            background-size: 18px 18px;
+        }
+
+        .gingham-pink {
+            background-color: #FCE4EC;
+            background-image: linear-gradient(90deg, rgba(248,187,208,0.4) 50%, transparent 50%),
+                              linear-gradient(rgba(248,187,208,0.4) 50%, transparent 50%);
+            background-size: 18px 18px;
+        }
+
+        .gingham-green {
+            background-color: #E8F5E9;
+            background-image: linear-gradient(90deg, rgba(165,214,167,0.35) 50%, transparent 50%),
+                              linear-gradient(rgba(165,214,167,0.35) 50%, transparent 50%);
+            background-size: 18px 18px;
+        }
+
+        /* ==========================================================================
+           2. MENU 
+           ========================================================================== */
+        header.top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 253, 247, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 2px dashed var(--border-soft);
+            padding: 14px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav.menu-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav.menu-links button {
+            background: #FFF;
+            border: 1.5px solid var(--border-soft);
+            padding: 8px 20px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        nav.menu-links button:hover, nav.menu-links button.active {
+            background-color: var(--primary-yellow);
+            border-color: var(--primary-brown);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1020px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==========================================================================
+           3. 
+           ========================================================================== */
+
+        .card-tag-wrapper {
+            background: var(--bg-card);
+            border: 2px solid var(--primary-brown);
+            border-radius: var(--radius-main);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .card-tag-header {
+            padding: 12px 20px;
+            border-bottom: 2px dashed var(--primary-brown);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .card-tag-header::after {
+            content: "@tiemnuongbiaCaiCai";
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            opacity: 0.8;
+        }
+
+        .card-tag-body {
+            padding: 25px;
+        }
+
+        /* Khung Tem Thư / Bánh Quy (Stamp Edge Frame) */
+        .frame-stamp {
+            background: #FFF;
+            border: 2px solid var(--border-soft);
+            outline: 6px solid #FFF8EE;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Nút Bấm "Nướng Bánh" Ngọt Ngào */
+        .btn-bake {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: #FFF;
+            font-weight: 700;
+            padding: 11px 26px;
+            border-radius: 25px;
+            border: 2px solid var(--primary-brown);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            text-align: center;
+            box-shadow: 0 4px 0 var(--primary-brown);
+        }
+
+        .btn-bake:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 var(--primary-brown);
+        }
+
+        .btn-bake:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--primary-brown);
+        }
+
+        .btn-secondary {
+            background: var(--primary-green);
+            color: var(--primary-brown);
+        }
+
+        .badge-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            background: var(--primary-yellow);
+            border: 1px solid var(--primary-brown);
+            color: var(--primary-brown);
+        }
+
+        /* ==========================================================================
+           4. BẢNG BIỂU & NÚT ACCORDION CÓ THỂ RÚT GỌN
+           ========================================================================== */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 12px;
+        }
+
+        table.bakery-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #FFF;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px solid var(--primary-brown);
+        }
+
+        table.bakery-table th, table.bakery-table td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-soft);
+            font-size: 0.9rem;
+        }
+
+        table.bakery-table th {
+            background: var(--primary-yellow);
+            color: var(--primary-brown);
+            font-weight: 800;
+            border-bottom: 2px solid var(--primary-brown);
+        }
+
+        .accordion-btn {
+            width: 100%;
+            text-align: left;
+            background: #FFFDF0;
+            border: 1.5px solid var(--primary-brown);
+            padding: 11px 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 14px 16px;
+            background: #FFF;
+            border: 1.5px solid var(--primary-brown);
+            border-top: none;
+            border-radius: 0 0 14px 14px;
+            font-size: 0.88rem;
+        }
+
+        /* MASONRY GALLERY */
+        .project-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            align-items: start;
+        }
+
+        .project-card {
+            background: #FFF;
+            border: 1.5px solid var(--primary-brown);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .project-info {
+            padding: 10px 14px;
+            background: #FFF8EE;
+            border-top: 1px dashed var(--border-soft);
+        }
+
+        /* ==========================================================================
+           5. MODAL BRIEF FORM CHUẨN ĐẦY ĐỦ CÁC MỤC DỘNG
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(74, 53, 37, 0.5);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-body {
+            background: var(--bg-cream);
+            border: 2px solid var(--primary-brown);
+            border-radius: var(--radius-main);
+            max-width: 660px;
+            width: 100%;
+            max-height: 88vh;
+            overflow-y: auto;
+            padding: 25px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 0.88rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1.5px solid var(--primary-brown);
+            border-radius: 12px;
+            background: #FFF;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .dynamic-field-group {
+            background: #FFF8EE;
+            padding: 15px;
+            border-radius: 14px;
+            border: 1.5px dashed var(--primary-orange);
+            margin-top: 12px;
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .checkbox-item {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
 
-    <!-- MENU THANH ĐIỀU HƯỚNG (HEADER) -->
-    <nav class="sticky top-0 z-50 bg-[#FFFDF9]/90 backdrop-blur-md border-b border-amber-100 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
-            <a href="index.html" class="text-xl font-black tracking-wide flex items-center gap-2">
-                <span class="bg-ptYellow px-3 py-1 rounded-full text-base shadow-sm">🌿</span>
-                <span class="text-ptBrown">Tiệm "nướng" bìa Cải Cải</span>
-            </a>
-            <div class="flex items-center gap-2 sm:gap-4 font-bold text-xs sm:text-sm">
-                <a href="index.html" class="px-4 py-2 rounded-full bg-ptGreen text-ptBrown shadow-sm">Cải's Project</a>
-                <a href="pricing.html" class="px-4 py-2 rounded-full hover:bg-ptOrange transition">Project</a>
-                <a href="membership.html" class="px-4 py-2 rounded-full hover:bg-ptYellow transition">Members</a>
-                <a href="tos.html" class="px-4 py-2 rounded-full hover:bg-stone-200 transition">ToS</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <header class="max-w-4xl mx-auto text-center my-10 px-4">
-        <div class="relative w-28 h-28 mx-auto mb-4">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=artist" alt="Avatar" class="w-full h-full rounded-full bg-ptOrange p-2 border-2 border-ptBrown shadow-md">
-            <span class="absolute bottom-0 right-0 bg-emerald-400 border-2 border-white text-white text-[10px] font-bold px-2 py-0.5 rounded-full">OPEN</span>
-        </div>
-        <h1 class="text-3xl font-extrabold mb-2">Cải và mớ deadline của ẻm</h1>
-        <p class="text-stone-600 max-w-md mx-auto text-sm leading-relaxed">
-            Blog nhỏ chưng những thứ "nhỏ xíu" Cải hí hoáy, mọi người có thể xem thêm sample / project trên blog facebook của Cải nha
-        </p>
+    <!-- 1. MENU TRÊN CÙNG (5 MỤC NGUYÊN BẢN, KHÔNG LOGO / TITLE / NÚT ĐẶT) -->
+    <header class="top-nav">
+        <nav class="menu-links">
+            <button class="nav-item active" onclick="switchTab('home')">Cốc cốc</button>
+            <button class="nav-item" onclick="switchTab('pricing')">Làm mẻ bánh nha</button>
+            <button class="nav-item" onclick="switchTab('gallery')">Đã ra lò</button>
+            <button class="nav-item" onclick="switchTab('tos')">Cách mua bánh</button>
+            <button class="nav-item" onclick="switchTab('members')">Hội ghiền bánh</button>
+        </nav>
     </header>
 
-    <!-- PORTFOLIO GALLERY (MASONRY GRID) -->
-    <main class="max-w-6xl mx-auto px-4 mb-20 flex-1">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-ptGreen inline-block"></span>
-                Một số "bánh nướng" mới ra lò
-            </h2>
-        </div>
+    <div class="container">
 
-        <!-- Khung ảnh tự động xếp cột tương thích mọi kích thước (Masonry) -->
-        <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-
-            <!-- ẢNH 1: Dạng Dọc -->
-            <div class="cute-card bg-white rounded-3xl p-3 break-inside-avoid">
-                <img src="https://github.com/user-attachments/assets/e210f70c-4b31-432b-95a5-4aa63ebfa8a7" alt="Artwork" class="w-full rounded-2xl cursor-pointer hover:opacity-95 transition" onclick="openModal(this.src)">
-                <div class="mt-3 px-2">
-                    <span class="text-[10px] bg-ptYellow px-2.5 py-1 rounded-full font-bold">Set Bìa 2D</span>
-                    <h3 class="font-bold text-sm mt-1">Nguyệt Quý / R / Non-Members</h3>
+        <!-- ==========================================================================
+             TRANG 1: CỐC CỐC (TRANG CHỦ)
+             ========================================================================== -->
+        <section id="home" class="page-section active">
+            <!-- Profile Card Decor Kiểu Thẻ Giấy Bao Bì -->
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-yellow">
+                    <span>LÝ LỊCH “EM CHỦ”</span>
+                </div>
+                <div class="card-tag-body">
+                    <div style="display: flex; gap: 22px; align-items: center; flex-wrap: wrap;">
+                        <div style="width: 105px; height: 105px; border-radius: 50%; background: var(--primary-yellow); border: 2px solid var(--primary-brown); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--primary-brown); flex-shrink: 0; text-align: center; font-size: 0.85rem;">
+                            [ AVATAR / LOGO ]
+                        </div>
+                        <div style="flex: 1;">
+                            <h1 style="font-size: 1.5rem; color: var(--primary-brown);">CCNX / Cải Nhỏ</h1>
+                            <p style="color: var(--text-muted); font-weight: 700; font-size: 0.9rem; margin-top: 4px;">
+                                Tiệm chuyên "nướng" các sản phẩm design độc đáo, không bán bánh ăn được!
+                            </p>
+                            <p style="margin-top: 8px; font-size: 0.88rem;">
+                                Hello cả nhà, đây là trang blog nhỏ có khá-là-đầy-đủ thông tin về các bé yêu của em và cách để mọi người “Gói mang về” nha
+                            </p>
+                            <div style="margin-top: 15px;">
+                                <button class="btn-bake" onclick="openOrderModal()">Đặt bánh ở đây nà</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- ẢNH 2: Dạng Vuông -->
-            <div class="cute-card bg-white rounded-3xl p-3 break-inside-avoid">
-                <img src="https://github.com/user-attachments/assets/b0bea9c9-b860-4f57-a931-8a0cad515d05" alt="Artwork" class="w-full rounded-2xl cursor-pointer hover:opacity-95 transition" onclick="openModal(this.src)">
-                <div class="mt-3 px-2">
-                    <span class="text-[10px] bg-ptGreen px-2.5 py-1 rounded-full font-bold">Atlantis Viễn Đông</span>
-                    <h3 class="font-bold text-sm mt-1">Bìa hỗ trợ độc quyền cho Atlantis</h3>
+            <!-- Mẻ bánh vừa ra lò (Dự án mới) -->
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-green">
+                    <span>NÓNG HỔI VỪA THỔI VỪA ĂN</span>
+                    <span class="badge-tag">Mới Ra Lò</span>
+                </div>
+                <div class="card-tag-body">
+                    <div class="project-masonry">
+                        <div class="project-card">
+                            <img src="https://picsum.photos/400/580?random=11" alt="Bookcover Sample">
+                            <div class="project-info">
+                                <strong>[Bookcover] Nắng Qua Mái Hiên</strong>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Style: Bồ Công Anh | Rank: SR</p>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <img src="https://picsum.photos/400/300?random=12" alt="Decor WP Sample">
+                            <div class="project-info">
+                                <strong>[Decor WP] Tiệm Bánh Nhỏ</strong>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Decor Full WordPress | Style: Anh Đào</p>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <img src="https://picsum.photos/400/400?random=13" alt="Watermark Sample">
+                            <div class="project-info">
+                                <strong>[Watermark] Set Chữ Ký Logo</strong>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Rank: SSR - 3 Kiểu Kiểu Dáng</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- ẢNH 3: Dạng Ngang -->
-            <div class="cute-card bg-white rounded-3xl p-3 break-inside-avoid">
-                <img src="https://github.com/user-attachments/assets/4240352d-6a8e-4192-914f-d97d6c29d298" alt="Artwork" class="w-full rounded-2xl cursor-pointer hover:opacity-95 transition" onclick="openModal(this.src)">
-                <div class="mt-3 px-2">
-                    <span class="text-[10px] bg-ptOrange px-2.5 py-1 rounded-full font-bold">Bookcover</span>
-                    <h3 class="font-bold text-sm mt-1">Nguyệt Quý / SR / Non-Members</h3>
+            <!-- Social Card Decor Ca-rô Hồng -->
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-pink">
+                    <span>CÁC CHI NHÁNH KHÁC</span>
+                </div>
+                <div class="card-tag-body">
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Ghé thăm em tại các tiệm nhỏ khác trên mạng xã hội:</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                        <a href="#" target="_blank" style="background: #FFF; border: 1.5px solid var(--primary-brown); padding: 10px; border-radius: 14px; text-align: center; text-decoration: none; font-weight: 700; font-size: 0.88rem;">[Blog Facebook]</a>
+                        <a href="#" target="_blank" style="background: #FFF; border: 1.5px solid var(--primary-brown); padding: 10px; border-radius: 14px; text-align: center; text-decoration: none; font-weight: 700; font-size: 0.88rem;">[ Group Facebook]</a>
+                        <a href="#" target="_blank" style="background: #FFF; border: 1.5px solid var(--primary-brown); padding: 10px; border-radius: 14px; text-align: center; text-decoration: none; font-weight: 700; font-size: 0.88rem;">[ Gmail / Hòm Thư ]</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             TRANG 2: LÀM MẺ BÁNH NHA 
+             ========================================================================== -->
+        <section id="pricing" class="page-section">
+            <div class="card-tag-wrapper" style="text-align: center;">
+                <div class="card-tag-header gingham-yellow" style="justify-content: center;">
+                    <span>TIỆM CẢI CÓ GÌ</span>
+                </div>
+                <div class="card-tag-body">
+                    <h3 style="color: var(--primary-brown);">Có muốn đặt zì hơm~</h3>
+                    <p style="font-size: 0.88rem; margin: 6px 0 14px 0;">Nhấn nút bên dưới để chọn hạng mục và gửi Brief chi tiết nha.</p>
+                    <button class="btn-bake" onclick="openOrderModal()">Form Đặt "Bánh"</button>
                 </div>
             </div>
 
-            <!-- ẢNH 4: Dạng Dọc Siêu Dài -->
-            <div class="cute-card bg-white rounded-3xl p-3 break-inside-avoid">
-                <img src="https://picsum.photos/400/750" alt="Artwork" class="w-full rounded-2xl cursor-pointer hover:opacity-95 transition" onclick="openModal(this.src)">
-                <div class="mt-3 px-2">
-                    <span class="text-[10px] bg-stone-200 px-2.5 py-1 rounded-full font-bold">Merchandise</span>
-                    <h3 class="font-bold text-sm mt-1">Thiết kế Standee Cặp đôi</h3>
+            <!-- MỤC 1: MỨC GIÁ DỊCH VỤ CƠ BẢN -->
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-green">
+                    <span>CÁC LOẠI “BÁNH” ON-AIR</span>
+                </div>
+                <div class="card-tag-body">
+                    <!-- Watermark -->
+                    <div style="margin-bottom: 20px;">
+                        <h3>1. Watermark / Logo</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;"> Gói base: gồm file png không nền và 2 ver trắng đen(+ 70k khi đặt thêm set avatar - cover theo watermark)</p>
+                        <div class="table-responsive">
+                            <table class="bakery-table">
+                                <thead>
+                                    <tr>
+                                        <th>Phân loại</th>
+                                        <th>Notes</th>
+                                        <th>Phí tham khảo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Pack R</strong></td>
+                                        <td>Gồm bản wtm / logo rút gọn (Gói base)</td>
+                                        <td>180k</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pack SR</strong></td>
+                                        <td>Wtm lẻ nhưng có nhiều version, trung bình 3 bố cục, có lên effect</td>
+                                        <td>250k</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pack SSR</strong></td>
+                                        <td> Khung wtm (frame) - theo size (16:9 - 2:3 - 1:1) + bản rút gọn(1 - 2 version), effect đơn giản</td>
+                                        <td>320k</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Decor Wordpress (WP) -->
+                    <div style="margin-bottom: 20px;">
+                        <h3>2. Decor WordPress</h3>
+                        <div class="table-responsive">
+                            <table class="bakery-table">
+                                <thead>
+                                    <tr>
+                                        <th>Gói decor</th>
+                                        <th>Chi tiết</th>
+                                        <th>Phí base</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong> Homepage</strong></td>
+                                        <td>Tư vấn, thảo luận, lên bố cục, setup (đơn giản vì không chuyên code), chọn theme, custom, ảnh full cho homepage, có kèm banner mục nhỏ</td>
+                                        <td>Từ 600k</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Full WordPress</strong></td>
+                                        <td>Homepage, trang con, bài viết, v…v…(Tặng set avatar theo concept, có phiếu ưu tiên nhận slot cho khách chưa phải members).</td>
+                                        <td>Từ 800k</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Merch Overview -->
+                    <div>
+                        <h3>3. Merch / Goods</h3>
+                        <p style="font-size: 0.88rem; margin-top: 4px;">
+                            Nhận: Bags (túi giấy), Postcard, Card Pola, Ticket, Badge, Standee, LED, Quạt, Photo Frame...
+                        </p>
+                        <div style="margin-top: 10px;">
+                            <button class="btn-bake btn-secondary" onclick="switchTab('merch-detail')"> Bài Merch Chi Tiết </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Bạn có thể copy thêm nhiều thẻ div class="cute-card..." tùy thích -->
+            <!-- NHỮNG "MẺ BÁNH" ĐẶC BIỆT -->
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-yellow">
+                    <span>NHỮNG "MẺ BÁNH" ĐẶC BIỆT (ORDER FB TOPIC)</span>
+                </div>
+                <div class="card-tag-body">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">Các gói đặt giới hạn mở theo đợt tại Blog cá nhân.</p>
+                    <div class="table-responsive">
+                        <table class="bakery-table">
+                            <thead>
+                                <tr>
+                                    <th>”Bánh” độc quyền của Cải Cải</th>
+                                    <th>Lý lịch trích ngang</th>
+                                    <th>Phí Cố Định / Phụ Thu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Set Bìa 2D (Không Mockup)</strong></td>
+                                    <td>Chỉ áp dụng Rank R - Được chọn toàn bộ style tùy thích.</td>
+                                    <td>200k (Up rank phụ thu <strong> + 70k</strong>)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bìa Take Away</strong></td>
+                                    <td>Mở theo đợt/chủ đề - Cố định Rank SR (Sửa giới hạn, deal brief => chốt slot).</td>
+                                    <td>Giá <strong>250k</strong> (Cổ trang +50k, Có nhân vật +50k)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Set Decor WP Sẵn</strong></td>
+                                    <td>Only Homepage - Rank R cho style phức tạp / SR cho style còn lại.</td>
+                                    <td><strong>666k</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bìa Gacha</strong></td>
+                                    <td>Bao gồm Full set bìa form SR + Mockup Gold.</td>
+                                    <td><strong>330k</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bìa Đấu Giá</strong></td>
+                                    <td>Chỉ mở duy nhất trong Group cá nhân. Chỉ đấu giá các bìa Rank SSR.</td>
+                                    <td>Bước nhảy <strong>70k / lần</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-        </div>
-    </main>
+            <!-- MỤC 3: BẢNG GIÁ THEO STYLE & RANK -->
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-pink">
+                    <span>BẢNG GIÁ THEO STYLE & RANK</span>
+                </div>
+                <div class="card-tag-body">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">
+                        Rank chia theo độ phức tạp của bản design: R<SR<<SSR. Giá chính là với bìa truyện lẻ, với avatar + cover thì - 50k nha
+                    </p>
 
-    <!-- LIGHTBOX (XEM ẢNH PHÓNG TO) -->
-    <div id="imageModal" class="fixed inset-0 bg-ptBrown/70 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4" onclick="closeModal()">
-        <img id="modalImg" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl border-4 border-white">
+                    <div class="table-responsive">
+                        <table class="bakery-table">
+                            <thead>
+                                <tr>
+                                    <th>Style</th>
+                                    <th>Mô Tả</th>
+                                    <th>R</th>
+                                    <th>SR</th>
+                                    <th>SSR(Members ONLY)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nguyệt Quý</strong></td>
+                                    <td>Đại chúng, phù hợp mọi thể loại</td>
+                                    <td>300k</td>
+                                    <td>370k</td>
+                                    <td>Deal</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anh Túc</strong></td>
+                                    <td>Bật “vibe”, có thể không quá rõ object / element, hợp với những truyện không y/c obj cụ thể</td>
+                                    <td>280k</td>
+                                    <td>350k</td>
+                                    <td>400k</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anh Đào</strong></td>
+                                    <td>Dạng xé dán, chồng element, khó tùy chỉnh</td>
+                                    <td>250k</td>
+                                    <td>280k</td>
+                                    <td>320k</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Thược Dược Đen</strong></td>
+                                    <td>Vua của mọi style =)))</td>
+                                    <td>370k</td>
+                                    <td>450k</td>
+                                    <td>Deal</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bồ Công Anh</strong></td>
+                                    <td>Tổng hợp các dạng style còn lại</td>
+                                    <td>320k (Chibi - Couple Chibi)</td>
+                                    <td>380k (Normal - Char)</td>
+                                    <td>420k (Các style đặc biệt)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Góc giải ngố -->
+                    <button class="accordion-btn" onclick="toggleAccordion('style-notes')">
+                        <span>Góc giải ngố dành cho người cẩn thận</span>
+                        <span>[Thu gọn / Mở]</span>
+                    </button>
+                    <div id="style-notes" class="accordion-content">
+                        <p>Không nhận PJ SSR cho người chưa từng làm việc cùng</p>
+                        <p> Có nhận bìa arc / chương hồi nhưng chỉ nhận qua ib và đây là đặt quyền của Members nha cả nhà</p>
+                        <p>Phối cảnh phức tạp, vẽ hiệu ứng tỉ mỉ từng chi tiết.</p>
+<p>Em có nhận tư vấn chọn style, mọi người cần thì có thể viết vào form là cần tư vấn thêm rồi cap brief tìm em qua ib blog fb nhé</p>
+                    </div>
+
+                    <div style="margin-top: 15px; background: #FFF3E0; padding: 12px 16px; border-radius: 12px; border: 1px dashed var(--primary-brown);">
+                        <span style="font-size: 0.88rem;">Các loại mockup đi kèm với bìa đặt qua form ở đây nà  ~ </span>
+                        <a href="javascript:void(0)" onclick="switchTab('tos')" style="font-weight: 700; color: var(--primary-brown);">"Bao Bì Bánh"</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SUB-PAGE: BÀI MERCH RIÊNG (ĐƯỜNG DẪN TỪ BẢNG GIÁ)
+             ========================================================================== -->
+        <section id="merch-detail" class="page-section">
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-yellow">
+                    <span>MERCH & GOODS KIM CHỈ NAM</span>
+                </div>
+                <div class="card-tag-body">
+                    <button class="btn-bake" onclick="switchTab('pricing')" style="padding: 5px 14px; font-size: 0.82rem; margin-bottom: 12px;">Các mẻ bánh on-air</button>
+                    <h2>Merch đa thể loại</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+                        Bảng kê chi tiết từng loại Merch em nhận thực hiện và chi phí đặt set mock đi kèm.
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="bakery-table">
+                            <thead>
+                                <tr>
+                                    <th>Phân loại</th>
+                                    <th>Mô tả</th>
+                                    <th>Notes / Phụ Thu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Polaroid Card</strong></td>
+                                    <td>1 card gồm: Mặt trước + Mặt sau</td>
+                                    <td>300k- Nếu làm Card đôi: <strong>+70k</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Postcard</strong></td>
+                                    <td>Mặt trước + Mặt sau</td>
+                                    <td>320k</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ticket</strong></td>
+                                    <td>Mặt trước + Mặt sau</td>
+                                    <td>320k</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Badge (Huy hiệu)</strong></td>
+                                    <td>Mặt trước + Backup</td>
+                                    <td>200k - Thu thêm 70k nếu đặt cặp</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Standee</strong></td>
+                                    <td>Chỉ nhận phần đế hoặc des mảnh nền trong std 2 mảnh + Backup</td>
+                                    <td>250k</td>
+                                </tr>
+                                <tr>
+                                    <td><strong> LED</strong></td>
+                                    <td>Tùy brief</td>
+                                    <td>Chi tiết qua Inbox Blog</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quạt</strong></td>
+                                    <td>2 mặt</td>
+                                    <td>300k</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Photo Frame</strong></td>
+                                    <td>Theo brief</td>
+                                    <td>Từ 250k - 280k</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bag</strong></td>
+                                    <td>Chỉ nhận túi giấy - Giá cơ bản 1 mặt</td>
+                                    <td>Thêm mặt khác: <strong> +70k</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Notes Thu Gọn Merch -->
+                    <button class="accordion-btn" onclick="toggleAccordion('merch-notes')">
+                        <span>Các lưu ý liên quan</span>
+                        <span>[Thu gọn / Mở]</span>
+                    </button>
+                    <div id="merch-notes" class="accordion-content">
+                        <p>• Các đơn Merch kỷ niệm hoặc ấn phẩm thương mại hãy tích chọn đúng vào mục tương ứng trên Form nha.</p>
+<p>•Có nhận thêm các loại merch khác qua ib blog</p>
+<p>•File gửi in sẽ là file CMYK, đuôi .png + .pdf, nếu cần file psd ĐỂ IN + 70k (Có gộp layer) CÒN ĐỂ CHỈNH SỬA LẠI (Dù là zoom to nhỏ chi tiết) + 170k -> x 0.5 giá base des phí phụ thu và không gộp layer</p>
+
+                    </div>
+
+                    <br>
+                    <!-- Khung Set Mockup Đặt Thêm -->
+                    <div style="background: #FFF8EE; padding: 16px; border-radius: 14px; border: 1.5px solid var(--primary-brown);">
+                        <h3>Gói Set Mockup Đặt Thêm (Dành Cho Merch)</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Gồm 3 Rank chính:</p>
+                        <ul style="list-style-type: none; font-size: 0.88rem;">
+                            <li style="margin-bottom: 6px;">
+                                <strong>• R:</strong> Mockup cho từng merch, không có mock tổng.
+                            </li>
+                            <li style="margin-bottom: 6px;">
+                                <strong>•SR:</strong> Mockup cho từng merch + Mockup tổng cho từng merch (loại ngang - banner).
+                                <br><span style="color: #D32F2F; font-size: 0.82rem;">* Phụ thu: Nếu đặt dạng ảnh tuyên truyền dài sẽ phụ thu +70k.</span>
+                            </li>
+                            <li style="margin-bottom: 6px;">
+                                <strong>• SSR:</strong> Mockup cho từng merch + Mockup tuyên truyền dài đầy đủ + Mockup rút gọn / Blind mock.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             TRANG 3: ĐÃ RA LÒ (GALLERY MULTI-SIZE)
+             ========================================================================== -->
+        <section id="gallery" class="page-section">
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-pink">
+                    <span>BÁNH “CỦA NHÀ NƯỚNG”</span>
+                </div>
+                <div class="card-tag-body">
+                    <h2>Đã Ra Lò</h2>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 18px;">
+                        Bộ sưu tập các mẻ bánh des của em Cẻi Củ
+                    </p>
+
+                    <div class="project-masonry">
+                        <div class="project-card">
+                            <img src="https://picsum.photos/400/600?random=21" alt="Sample 1">
+                            <div class="project-info"><strong>Bookcover Bìa Dài Single</strong></div>
+                        </div>
+                        <div class="project-card">
+                            <img src="https://picsum.photos/400/280?random=22" alt="Sample 2">
+                            <div class="project-info"><strong>Banner Arc Chương Truyện</strong></div>
+                        </div>
+                        <div class="project-card">
+                            <img src="https://picsum.photos/400/400?random=23" alt="Sample 3">
+                            <div class="project-info"><strong>Merch Set Postcard & Card Polaroid</strong></div>
+                        </div>
+                        <div class="project-card">
+                            <img src="https://picsum.photos/400/520?random=24" alt="Sample 4">
+                            <div class="project-info"><strong>Mockup Bìa Cứng Silver Rank</strong></div>
+                        </div>
+                        <div class="project-card">
+                            <img src="https://picsum.photos/400/320?random=25" alt="Sample 5">
+                            <div class="project-info"><strong>Decor WordPress Homepage</strong></div>
+                        </div>
+                        <div class="project-card">
+                            <img src="https://picsum.photos/400/550?random=26" alt="Sample 6">
+                            <div class="project-info"><strong>Watermark Set Rank SSR</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             TRANG 4: CÁCH MUA BÁNH (TOS + BAO BÌ BÁNH)
+             ========================================================================== -->
+        <section id="tos" class="page-section">
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-green">
+                    <span>TERMS OF SERVICE (TOS)</span>
+                </div>
+                <div class="card-tag-body">
+                    <h2>Cách Mua Bánh</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                        Quý “thực khách” vui lòng đọc thật kỹ bài Tos nha, đã điền brief = chấp nhận 100% Tos nha. P/s: Bài này là bài Tos rút gọn, mọi người nên đọc full docx gửi kèm để có thể nắm rõ nhất có thể nha
+                    </p>
+
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="background: #FFF; padding: 14px; border-radius: 12px; border: 1.5px solid var(--primary-brown);">
+                            <h4>1. Bên lề</h4>
+                            <p style="font-size: 0.88rem; margin-top: 4px;">Xin hãy ghi credit dù bất kỳ trường hợp nào! </p> <p style="font-size: 0.88rem; margin-top: 4px;">Hãy chịu trách nhiệm với brief của bản thân và biết rõ bản thân muốn gì, đảm bảo ĐÃ ĐỌC TOÀN BỘ TOS VÀ XEM SAMPLE, SHEET STY/RANK.</p> </p> <p style="font-size: 0.88rem; margin-top: 4px;"> Với những PJ dài hạn (Event, merch / goods, bìa dài tập) CẦN THẢO LUẬN CÁCH THỨC TRAO ĐỔI VÀ LÀM VIỆC, cùng những rủi ro hiện có và lưu ý của 2 bên trước khi chính thức lên kế hoạch, cọc, xếp lịch và gửi demo v…v…v</p> 
+
+                        </div>
+
+                        <div style="background: #FFF; padding: 14px; border-radius: 12px; border: 1.5px solid var(--primary-brown);">
+                            <h4>2. Brief</h4>
+                            <p style="font-size: 0.88rem; margin-top: 4px;">Yêu cầu rõ ràng, nên lướt nhiều sample trên blog fb để hình dung được bản thân muốn gì và Cải có thể làm gì.</p> 
+
+<p style="font-size: 0.88rem; margin-top: 4px;">Cải nhận rất nhiều PJ, đa số không update lên blog, nên miễn là yêu cầu của bae đủ rõ ràng, Cải sẽ cố hết sức để hoàn thành.</p> 
+
+<p style="font-size: 0.88rem; margin-top: 4px;">KHÔNG nhận cover idol, ảnh người thật v…v…v, nếu là PJ về người thật nhưng dùng comm chibi hoặc des dạng object 100% thì vẫn nhận nhé.</p> 
+
+<p style="font-size: 0.88rem; margin-top: 4px;">KHÔNG ĐỔI BRIEF SÁT NGÀY GỬI DEMO (Nếu đã chốt ngày gửi rồi) - Có thể bổ sung NHƯNG phải báo trước 5 ngày trở lên.</p> 
+                        </div>
+
+                        <div style="background: #FFF; padding: 14px; border-radius: 12px; border: 1.5px solid var(--primary-brown);">
+                            <h4>3. Deadline</h4>
+                            <p style="font-size: 0.88rem; margin-top: 4px;">Deadline cố định cho bìa truyện bình thường dao động từ 3 tới 4 tuần, set ava+cv là 2 tới 3 tuần.</p>
+
+  <p style="font-size: 0.88rem; margin-top: 4px;">Deadline bìa thường được tính từ ngày gửi brief (Nếu ngày gửi brief rơi vào tầm cuối hoặc đầu tháng), nếu brief gửi vào tầm giữa tháng (13 - 23 tây mỗi tháng) demo có thể gửi vào tầm hơn 1 tháng nhé! (Chuyện này còn tùy theo lịch deadline, hoặc các tháng đặc biệt (Tháng 1 / 2 / 7 / 12)</p>
+
+  <p style="font-size: 0.88rem; margin-top: 4px;">Deadline cho wordpress nhận qua bài gom book trên blog là 2 tháng; Deadline cho set 2D gom book là 2 tuần; Các PJ khác sẽ tùy theo lịch deadline cá nhân.</p>
+
+<p style="font-size: 0.88rem; margin-top: 4px;">CÓ NHẬN DEADLINE GẤP và có phụ thu theo từng loại deadline </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bài Viết Về "Bao Bì Bánh" (Hệ Thống Mockup) -->
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-yellow">
+                    <span>ALL MOCKUP</span>
+                </div>
+                <div class="card-tag-body">
+                    <h2>Bao Bì Bánh</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+                        Rank: Silver < Gold < Diamond
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="bakery-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Mô Tả</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Silver</strong></td>
+                                    <td>Mockup cơ bản, dao động từ 4 - 6 ver mock lẻ, khách lạ autu dùng mẫu mặc định hoặc được chọn 1 trong 3 mẫu có sẵn nha</td>
+                                    <td>Khả dụng với cả Non-M lẫn Members</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Gold</strong></td>
+                                    <td>Từ 8 - 10 mock lẻ, mỗi loại mock có 3 set mẫu</td>
+                                    <td>Non-members chỉ được dùng set mặc định nếu chọn loại mock áo - cứng</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Diamond</strong></td>
+                                    <td>Trên 12 mock lẻ, có 1 mẫu cố định cho từng loại mock, hoặc có thể đặt luôn dạng custom (phụ thu 50k)</td>
+                                    <td>Members only</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             TRANG 5: HỘI GHIỀN BÁNH (MEMBERS CLUB)
+             ========================================================================== -->
+        <section id="members" class="page-section">
+            <div class="card-tag-wrapper">
+                <div class="card-tag-header gingham-pink">
+                    <span>MEMBERS CLUB</span>
+                </div>
+                <div class="card-tag-body">
+                    <h2>Hội Ghiền Bánh nhà Cải</h2>
+                    
+                    <!-- Notes Ngắn Gọn Về Members -->
+                    <button class="accordion-btn" onclick="toggleAccordion('members-notes')">
+                        <span>Members và Non-Members là gì?</span>
+                        <span>[+]</span>
+                    </button>
+                    <div id="members-notes" class="accordion-content">
+                        <p>Chắc ai từng điền form brief cũng sẽ thắc mắc phần VIP – VVIP là gì, VIP – VVIP (members) là hội “khách hàng thân thiết” của em, là trọng tâm mà em “săn sóc” và “đội lên đầu”, hầu hết đều là những chị em đáng yêu, hợp cạ về phương diện công việc, ở bên cạnh em có thâm niên, luôn tin tưởng và ủng hộ em nữa.</p>
+<p>Members của em không duy trì bằng cách đóng tiền, nộp tiền gì cả, miễn là tình yêu có NHU CẦU LÀM VIỆC LÂU DÀI, xem em là first choice, đúng mực và tôn trọng em là được. Thậm chí hiện tại có vài tình yêu đã “nghỉ hưu” rồi nhưng họ vẫn là VIP, thậm chí là VVIP của em, chủ yếu là vì em rất biết ơn, cũng như trân trọng việc họ đã từng đồng hành với em từ năm nảo năm nao, nói chung tuýt này là “Hội ziên danh dự” ó.</p>
+<p>Mọi người có thể đăng ký làm VIP (Members mức 1) qua form
+=> Dĩ nhiên, phải đáp ứng một vài điều kiện, trước nhất là: ĐÃ TỪNG LÀM VIỆC VỚI EM ÍT NHẤT 1 LẦN, thứ hai là có nhu cầu làm việc lâu dài trong năm 2026 (Vì form đăng ký và xét duyệt có hiệu lực 1 năm), ĐIỀN FORM đầy đủ cẩn thận.</p>
+<p>VVIP vẫn không thể đăng ký, này là một mức cao hơn, do em chủ động chọn, nhưng VVIP không đánh số cũng như phân biệt nữa.</p>
+<p>Hội viên sẽ có thẻ, có ưu đãi và quyền lợi sẽ được cập nhật ở acc công việc XXX (Em sẽ gửi link acc nếu tình yêu trở thành VIP). Mỗi năm mỗi đăng ký lại 1 lần, với những người đã trở thành VIP, năm sau chỉ cần ib xác nhận lại với em qua tin nhắn là được, KHÔNG CẦN ĐIỀN LẠI FORM.
+Hội viên (VIP) không duy trì bằng cách đóng tiền ABC XYZ và có thể hủy bất cứ lúc nào, em cũng có thể chủ động hủy.</p>
+<p>Với những người “đã từng” là hội viên (Đã hủy đăng ký v…v…v) em vẫn sẽ nhận đơn, nhưng là với tư cách khách bình thường.</p>
+<p>Vị thui, nói chung hội viên là một cách để em tri ân mọi người thui, cả nhà đừng áp lực quá, ai chỉ có nhu cầu đặt bìa bình thường, ngại phiền thì cứ đặt em qua mess blog là được. Chứ lên members 10 bữa nửa tháng em lại ib làm phiền hoài chắc mọi người cũng ngại…</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 18px;">
+                        <!-- NON-MEMBERS -->
+                        <div style="background: #FFF; border: 1.5px solid var(--primary-brown); padding: 18px; border-radius: 16px;">
+                            <h3>Khách Chưa Đăng Ký (Non-Members)</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 4px 0;">Khách lạ chưa đăng ký form để thành members</p>
+                            <ul style="font-size: 0.88rem; padding-left: 18px; margin-top: 8px;">
+                                <li>Không thể đặt PJ SSR</li>
+                                <li>Em ưu tiên VIP/VVIP hơn nên slot cho khách lạ sẽ cực kỳ hạn chế và có thể bị dời deadline nữa (Em sẽ báo nếu có trường hợp này - mọi người có thể cancel nếu muốn nhé)</li>
+                                <li>Làm việc bình thường, chỉ không có quyền lợi như members thui - hợp với những tình yêu muốn đặt em “đổi gió” chứ không định đi lâu dài</li>
+                            </ul>
+                        </div>
+
+                        <!-- MEMBERS: VIP & VVIP -->
+                        <div style="background: #FFF8EE; border: 2px solid var(--primary-orange); padding: 18px; border-radius: 16px;">
+                            <span class="badge-tag">HỘI GHIỀN BÁNH</span>
+                            <h3 style="margin-top: 6px;">VIP - VVIP</h3>
+                            
+                            <div style="margin-top: 10px;">
+                                <strong style="color: var(--primary-orange);">1. VIP:</strong>
+                                <ul style="font-size: 0.85rem; padding-left: 18px;">
+                                    <li>Có thể mở thẻ tháng (Thẻ tháng không phải nạp theo tháng đâu nha)</li>
+                                    <li>Ưu tiên nhận slot, xếp lịch. Mở khóa các PJ và rank SSR</li>
+                                    <li>Đặt set 2D thoải mái, không giới hạn số lượt, thời gian và không cần đợi bài order</li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-top: 10px;">
+                                <strong style="color: #D81B60;">2. VVIP:</strong>
+                                <ul style="font-size: 0.85rem; padding-left: 18px;">
+                                    <li>Mở thẻ tháng + thẻ tích điểm (Đủ điểm / mốc sẽ cóa quà nha~)</li>
+                                    <li>Ưu tiên slot đầu tiên, có thể keep slot cho PJ to, có thể chốt slot theo quý, cũng có thể xếp lịch chen</li>
+                                    <li>Có thể đặt một set mockup riêng cho bìa cá nhân (Dùng cho những bìa sau này mọi người đặt em nha)</li>
+                                    <li>Luôn có slot decor wordpress mỗi năm nếu cần</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <footer class="bg-amber-50/50 border-t border-amber-100 py-6 text-center text-xs text-stone-500">
-        © 2026 Pastel Studio • All Rights Reserved 🤎
-    </footer>
+    <!-- ==========================================================================
+         FORM ĐẶT "BÁNH" (MODAL BRIEF POPUP DỘNG)
+         ========================================================================== -->
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal-body">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <h2 style="color: var(--primary-brown);">Form Đặt "Bánh" (Gửi Brief)</h2>
+                <button onclick="closeOrderModal()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; font-weight: 800;">✕</button>
+            </div>
 
+            <form id="bakeryBriefForm" onsubmit="handleFormSubmit(event)">
+                <!-- CÁC THÔNG TIN CƠ BẢN -->
+                <div class="form-group">
+                    <label>Tên*</label>
+                    <input type="text" class="form-control" required placeholder="Nhập tên của bạn...">
+                </div>
+
+                <div class="form-group">
+                    <label>Link Facebook / Email Liên Lạc *</label>
+                    <input type="text" class="form-control" required placeholder="Link FB hoặc Email liên hệ...">
+                </div>
+
+                <div class="form-group">
+                    <label>Tên PJ (Text Chính) *</label>
+                    <input type="text" class="form-control" required placeholder="Tên tác phẩm / tiêu đề...">
+                </div>
+
+                <div class="form-group">
+                    <label>Chọn loại “bánh” để “nướng” nào~*</label>
+                    <select id="categorySelect" class="form-control" onchange="updateFormDynamicFields()" required>
+                        <option value="">-- Chọn hạng mục --</option>
+                        <option value="bookcover">Bookcover (Bìa Sách / Truyện)</option>
+                        <option value="wordpress">Decor WordPress</option>
+                        <option value="watermark">Watermark (Thủy Ấn)</option>
+                        <option value="merch">Merch / Goods</option>
+                    </select>
+                </div>
+
+                <!-- KHU VỰC CHỨA CÁC TRƯỜNG DỘNG THAY ĐỔI THEO HẠNG MỤC -->
+                <div id="dynamicFieldsContainer"></div>
+
+                <div class="form-group" style="margin-top: 14px;">
+                    <label>Brief Chính (Nội dung chi tiết yêu cầu) *</label>
+                    <textarea class="form-control" rows="3" required placeholder="Mô tả ý tưởng, màu sắc, phong cách..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Link Ref (Nên gửi Link Google Drive chứa Ref) *</label>
+                    <input type="url" class="form-control" placeholder="https://drive.google.com/..." required>
+                </div>
+
+                <div style="margin-top: 18px; display: flex; gap: 10px; justify-content: flex-end;">
+                    <button type="button" class="btn-bake" style="background: var(--text-muted);" onclick="closeOrderModal()">Hủy</button>
+                    <button type="submit" class="btn-bake">Gửi Brief Ngay</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         JAVASCRIPT LOGIC
+         ========================================================================== -->
     <script>
-        function openModal(src) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('imageModal').classList.remove('hidden');
+        // Chuyển Tab Trang
+        function switchTab(pageId) {
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(p => p.classList.remove('active'));
+
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            const navButtons = document.querySelectorAll('.nav-item');
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            
+            const activeBtn = Array.from(navButtons).find(btn => btn.getAttribute('onclick').includes(pageId));
+            if (activeBtn) activeBtn.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        function closeModal() {
-            document.getElementById('imageModal').classList.add('hidden');
+
+        // Bật / Tắt Ghi Chú Thu Gọn
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === "block") {
+                el.style.display = "none";
+            } else {
+                el.style.display = "block";
+            }
+        }
+
+        // Modal Brief
+        function openOrderModal() {
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        // Render Trường Động Chuẩn Từng Hạng Mục
+        function updateFormDynamicFields() {
+            const cat = document.getElementById('categorySelect').value;
+            const container = document.getElementById('dynamicFieldsContainer');
+            container.innerHTML = '';
+
+            if (!cat) return;
+
+            let html = '<div class="dynamic-field-group">';
+
+            if (cat === 'bookcover') {
+                html += `
+                    <div class="form-group">
+                        <label>Thể Loại Bìa</label>
+                        <select class="form-control">
+                            <option>Truyện Lẻ</option>
+                            <option>Truyện Theo Chương Hồi / Arc</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Yêu Cầu Thêm (Dành Cho Truyện Lẻ)</label>
+                        <select class="form-control">
+                            <option>Không chọn thêm</option>
+                            <option>Bản Typo 1:1</option>
+                            <option>Banner Chương</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Chọn Rank & Style Bìa</label>
+                        <div style="display: flex; gap: 10px;">
+                            <select class="form-control">
+                                <option>Rank R</option>
+                                <option>Rank SR</option>
+                                <option>Rank SSR</option>
+                            </select>
+                            <select class="form-control">
+                                <option>Nguyệt Quý</option>
+                                <option>Anh Túc</option>
+                                <option>Anh Đào</option>
+                                <option>Thược Dược Đen</option>
+                                <option>Bồ Công Anh</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Loại Mockup & Rank Mockup</label>
+                        <div style="display: flex; gap: 10px;">
+                            <select class="form-control">
+                                <option>Áo Cứng</option>
+                                <option>Bìa Cứng</option>
+                                <option>Bìa Mềm</option>
+                            </select>
+                            <select class="form-control">
+                                <option>Silver</option>
+                                <option>Gold</option>
+                                <option>Diamond</option>
+                            </select>
+                        </div>
+                    </div>
+                `;
+            } else if (cat === 'wordpress') {
+                html += `
+                    <div class="form-group">
+                        <label>Chọn Đặt Decor</label>
+                        <select class="form-control">
+                            <option>Homepage</option>
+                            <option>Full WordPress</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Style & Rank</label>
+                        <div style="display: flex; gap: 10px;">
+                            <select class="form-control">
+                                <option>Anh Đào</option>
+                                <option>Nguyệt Quý</option>
+                                <option>Bồ Công Anh</option>
+                                <option>Style Khác</option>
+                            </select>
+                            <select class="form-control">
+                                <option> R</option>
+                                <option> SR</option>
+                                <option> SSR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Budget & Deadline Dự Kiến</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" class="form-control" placeholder="Budget (VNĐ)">
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                `;
+            } else if (cat === 'watermark') {
+                html += `
+                    <div class="form-group">
+                        <label>Chọn Watermark Theo Set Rank</label>
+                        <select class="form-control">
+                            <option>Set Watermark Rank R</option>
+                            <option>Set Watermark Rank SR</option>
+                            <option>Set Watermark Rank SSR</option>
+                        </select>
+                    </div>
+                `;
+            } else if (cat === 'merch') {
+                html += `
+                    <div class="form-group">
+                        <label>Số Lượng & Chọn Các Loại Merch Cụ Thể:</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item"><input type="checkbox"> Polaroid Card</label>
+                            <label class="checkbox-item"><input type="checkbox"> Postcard</label>
+                            <label class="checkbox-item"><input type="checkbox"> Ticket</label>
+                            <label class="checkbox-item"><input type="checkbox"> Badge</label>
+                            <label class="checkbox-item"><input type="checkbox"> Standee</label>
+                            <label class="checkbox-item"><input type="checkbox"> LED</label>
+                            <label class="checkbox-item"><input type="checkbox"> Quạt</label>
+                            <label class="checkbox-item"><input type="checkbox"> Photo Frame</label>
+                            <label class="checkbox-item"><input type="checkbox"> Bag (Túi giấy)</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-item" style="font-weight: 700; color: var(--primary-brown);">
+                            <input type="checkbox"> Cần Đặt Set Mockup Riêng (Khi chọn Merch)
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>Loại Ấn Phẩm</label>
+                        <select class="form-control">
+                            <option>Không phải ấn phẩm</option>
+                            <option>Có - Là ấn phẩm (Kể cả kỷ niệm / xuất bản)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Budget & Deadline</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" class="form-control" placeholder="Budget (VNĐ)">
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                `;
+            }
+
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Xử lý gửi Form
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Gửi Brief thành công! Tiệm "Nướng" Bánh sẽ xem qua yêu cầu và liên hệ với bạn sớm nhất.');
+            closeOrderModal();
         }
     </script>
 </body>
 </html>
+
+
