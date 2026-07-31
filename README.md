@@ -21,3 +21,7 @@
 <img width="2000" height="2000" alt="HÒN ĐẢO MOCK" src="https://github.com/user-attachments/assets/2214ed0b-4d08-44d9-b4c9-d775f7980074" />
 <img width="1490" height="2100" alt="HỌC THUYẾT" src="https://github.com/user-attachments/assets/1aebe9fa-dfa4-4a3d-bd06-c8f466c936c0" />
 <img width="1490" height="2100" alt="BIAWATT" src="https://github.com/user-attachments/assets/86ed2011-914b-426a-b0c1-e933b1f036a0" />
+<img width="1490" height="1490" alt="TYPO-CÁ CỦA TÔI" src="https://github.com/user-attachments/assets/2f5cf2a2-bda4-4e07-9939-7df869d50d8b" />
+<img width="2000" height="2000" alt="HUONGDUONG" src="https://github.com/user-attachments/assets/7185af3c-e404-4ebf-b9ae-12a2de260827" />
+<img width="1335" height="1335" alt="THU7" src="https://github.com/user-attachments/assets/3da86414-edb0-451a-bd36-e2c95d460835" />
+<img width="3000" height="1469" alt="BANNER-QUYỂN1" src="https://github.com/user-attachments/assets/346304db-0337-4547-9ed6-47d97d5b6c8d" />
