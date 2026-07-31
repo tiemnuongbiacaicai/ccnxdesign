@@ -1253,7 +1253,228 @@ Hội viên (VIP) không duy trì bằng cách đóng tiền ABC XYZ và có th�
                 el.style.display = "block";
             }
         }
+// ==========================================
+// 1. QUẢN LÝ MODAL POPUP
+// ==========================================
+function openOrderModal() {
+    document.getElementById('orderModal').style.display = 'flex';
+}
 
+function closeOrderModal() {
+    document.getElementById('orderModal').style.display = 'none';
+}
+
+// ==========================================
+// 2. RENDER TRƯỜNG ĐỘNG + GÁN ATTR 'NAME' ĐỂ LẤY DỮ LIỆU
+// ==========================================
+function updateFormDynamicFields() {
+    const catSelect = document.getElementById('categorySelect');
+    if (!catSelect) return;
+    
+    const cat = catSelect.value;
+    const container = document.getElementById('dynamicFieldsContainer');
+    container.innerHTML = '';
+
+    if (!cat) return;
+
+    let html = '<div class="dynamic-field-group">';
+
+    if (cat === 'bookcover') {
+        html += `
+            <div class="form-group">
+                <label>Thể Loại Bìa</label>
+                <select name="the_loai_bia" class="form-control">
+                    <option value="Truyện Lẻ">Truyện Lẻ</option>
+                    <option value="Truyện Theo Chương Hồi / Arc">Truyện Theo Chương Hồi / Arc</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Yêu Cầu Thêm (Dành Cho Truyện Lẻ)</label>
+                <select name="yeu_cau_them" class="form-control">
+                    <option value="Không chọn thêm">Không chọn thêm</option>
+                    <option value="Bản Typo 1:1">Bản Typo 1:1</option>
+                    <option value="Banner Chương">Banner Chương</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Chọn Rank & Style Bìa</label>
+                <div style="display: flex; gap: 10px;">
+                    <select name="rank_bia" class="form-control">
+                        <option value="Rank R">Rank R</option>
+                        <option value="Rank SR">Rank SR</option>
+                        <option value="Rank SSR">Rank SSR</option>
+                    </select>
+                    <select name="style_bia" class="form-control">
+                        <option value="Nguyệt Quý">Nguyệt Quý</option>
+                        <option value="Anh Túc">Anh Túc</option>
+                        <option value="Anh Đào">Anh Đào</option>
+                        <option value="Thược Dược Đen">Thược Dược Đen</option>
+                        <option value="Bồ Công Anh">Bồ Công Anh</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Loại Mockup & Rank Mockup</label>
+                <div style="display: flex; gap: 10px;">
+                    <select name="loai_mockup" class="form-control">
+                        <option value="Áo Cứng">Áo Cứng</option>
+                        <option value="Bìa Cứng">Bìa Cứng</option>
+                        <option value="Bìa Mềm">Bìa Mềm</option>
+                    </select>
+                    <select name="rank_mockup" class="form-control">
+                        <option value="Silver">Silver</option>
+                        <option value="Gold">Gold</option>
+                        <option value="Diamond">Diamond</option>
+                    </select>
+                </div>
+            </div>
+        `;
+    } else if (cat === 'wordpress') {
+        html += `
+            <div class="form-group">
+                <label>Chọn Đặt Decor</label>
+                <select name="goi_decor_wp" class="form-control">
+                    <option value="Homepage">Homepage</option>
+                    <option value="Full WordPress">Full WordPress</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Style & Rank</label>
+                <div style="display: flex; gap: 10px;">
+                    <select name="style_wp" class="form-control">
+                        <option value="Anh Đào">Anh Đào</option>
+                        <option value="Nguyệt Quý">Nguyệt Quý</option>
+                        <option value="Bồ Công Anh">Bồ Công Anh</option>
+                        <option value="Style Khác">Style Khác</option>
+                    </select>
+                    <select name="rank_wp" class="form-control">
+                        <option value="Rank R">Rank R</option>
+                        <option value="Rank SR">Rank SR</option>
+                        <option value="Rank SSR">Rank SSR</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Budget & Deadline Dự Kiến</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" name="budget" class="form-control" placeholder="Budget (VNĐ)">
+                    <input type="date" name="deadline" class="form-control">
+                </div>
+            </div>
+        `;
+    } else if (cat === 'watermark') {
+        html += `
+            <div class="form-group">
+                <label>Chọn Watermark Theo Set Rank</label>
+                <select name="set_watermark" class="form-control">
+                    <option value="Set Watermark Rank R">Set Watermark Rank R</option>
+                    <option value="Set Watermark Rank SR">Set Watermark Rank SR</option>
+                    <option value="Set Watermark Rank SSR">Set Watermark Rank SSR</option>
+                </select>
+            </div>
+        `;
+    } else if (cat === 'merch') {
+        html += `
+            <div class="form-group">
+                <label>Chọn Các Loại Merch Cụ Thể:</label>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item"><input type="checkbox" name="merch_item" value="Polaroid Card"> Polaroid Card</label>
+                    <label class="checkbox-item"><input type="checkbox" name="merch_item" value="Postcard"> Postcard</label>
+                    <label class="checkbox-item"><input type="checkbox" name="merch_item" value="Ticket"> Ticket</label>
+                    <label class="checkbox-item"><input type="checkbox" name="merch_item" value="Badge"> Badge</label>
+                    <label class="checkbox-item"><input type="checkbox" name="merch_item" value="Standee"> Standee</label>
+                    <label class="checkbox-item"><input type="checkbox" name="merch_item" value="LED"> LED</label>
+                    <label class="checkbox-item"><input type="checkbox" name="merch_item" value="Quạt"> Quạt</label>
+                    <label class="checkbox-item"><input type="checkbox" name="merch_item" value="Photo Frame"> Photo Frame</label>
+                    <label class="checkbox-item"><input type="checkbox" name="merch_item" value="Bag (Túi giấy)"> Bag (Túi giấy)</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="checkbox-item" style="font-weight: 700;">
+                    <input type="checkbox" name="co_dat_mockup_rieng" value="Có"> Cần Đặt Set Mockup Riêng (Khi chọn Merch)
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Loại Ấn Phẩm</label>
+                <select name="loai_an_pham" class="form-control">
+                    <option value="Không phải ấn phẩm">Không phải ấn phẩm</option>
+                    <option value="Có - Là ấn phẩm (Kể cả kỷ niệm / xuất bản)">Có - Là ấn phẩm (Kể cả kỷ niệm / xuất bản)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Budget & Deadline</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" name="budget" class="form-control" placeholder="Budget (VNĐ)">
+                    <input type="date" name="deadline" class="form-control">
+                </div>
+            </div>
+        `;
+    }
+
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+// ==========================================
+// 3. XỬ LÝ GỬI DỮ LIỆU THỰC TẾ (API FETCH)
+// ==========================================
+async function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    
+    // Đổi trạng thái nút bấm tránh bấm nhiều lần
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Đang gửi Brief...';
+    }
+
+    // Thu thập tất cả dữ liệu từ Form
+    const formData = new FormData(form);
+    const payload = {};
+
+    // Xử lý gom các checkbox merch lại thành 1 chuỗi
+    const selectedMerch = [];
+    formData.forEach((value, key) => {
+        if (key === 'merch_item') {
+            selectedMerch.push(value);
+        } else {
+            payload[key] = value;
+        }
+    });
+    if (selectedMerch.length > 0) {
+        payload['danh_sach_merch'] = selectedMerch.join(', ');
+    }
+
+    // Thêm thời gian gửi đơn
+    payload['thoi_gian_gui'] = new Date().toLocaleString('vi-VN');
+
+    // -------------------------------------------------------------
+    // CHỌN 1 TRONG 2 CÁCH GỬI DƯỚI ĐÂY BẰNG CÁCH DÁN URL VÀO WEBHOOK_URL:
+    // -------------------------------------------------------------
+    const WEBHOOK_URL = 'THAY_LINK_WEBHOOK_CỦA_BẠN_VÀO_ĐÂY'; 
+
+    try {
+        const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // Dùng text/plain để tránh CORS với Google Apps Script
+            body: JSON.stringify(payload)
+        });
+
+        alert('✨ Gửi Brief thành công! Tiệm "Nướng" Bánh sẽ xem qua yêu cầu và liên hệ với bạn sớm nhất.');
+        form.reset();
+        closeOrderModal();
+    } catch (error) {
+        console.error('Lỗi khi gửi form:', error);
+        alert('❌ Có lỗi xảy ra khi gửi đơn. Vui lòng thử lại hoặc nhắn tin trực tiếp cho tiệm!');
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Gửi Brief Đặt Bánh';
+        }
+    }
+}
         // Modal Brief
         function openOrderModal() {
             document.getElementById('orderModal').style.display = 'flex';
